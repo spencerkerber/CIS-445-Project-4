@@ -1,0 +1,2279 @@
+NOTE: PROCEDURE PRINTTO used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+Traverser: Traverser invoked.  MPCONNECT command is !sascmdv -nosyntaxcheck -noasynchio -noobjectserver. 
+Traverser: Beginning flow traversal 
+15780      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+15781      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+15782      put '<Node Id="FIMPORT" Event="Run" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="FIMPORT" Event="Run" Pid="952" Gridid=""/>';
+15783      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 52.
+      The maximum record length was 52.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+15784      %let emloopmode =;
+*------------------------------------------------------------* 
+* 
+* FIMPORT : Beginning update before running 
+* datetime : 12NOV2015:14:10:10 
+* 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):     *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * FIMPORT: Generation of macros and macro variables;
+MPRINT(EM_DIAGRAM):   * To see the code generated, set the EM_DEBUG macro variable to SOURCE or _ALL_;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * FIMPORT: EM Macro Variables and Macros;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * System Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   length string $2000;
+MPRINT(EM_DIAGRAM):   string = 'Project_4';
+MPRINT(EM_DIAGRAM):   call symput('EM_PROJECTNAME', trim(string));
+MPRINT(EM_DIAGRAM):   string = 'P4';
+MPRINT(EM_DIAGRAM):   call symput('EM_WSNAME', trim(string));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * Properties Macro Variables ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Files Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Import Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Export Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Decision Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Statement Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+15988      %let emexceptionString =;
+15989      %let EMEXCEPTIONSTRING=;
+15990      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+15991      * UPDATE: FIMPORT;
+MPRINT(EM_DIAGRAM):   * UPDATE: FIMPORT;
+15992      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+15993      %let EM_ACTION = UPDATE;
+15994      %let syscc = 0;
+15995      /* Fimport.source */
+15996      %macro main;
+15997            %if %upcase(&EM_ACTION) = CREATE %then %do;
+15998               filename temp catalog 'sashelp.emsamp.Fimport_create.source';
+15999               %include temp;
+16000               filename temp;
+16001               %create;
+16002            %end;
+16003            %else
+16004            %if %upcase(&EM_ACTION) = TRAIN %then %do;
+16005               filename temp catalog 'sashelp.emsamp.Fimport_train.source';
+16006               %include temp;
+16007               filename temp;
+16008               %train;
+16009            %end;
+16010            %else
+16011            %if %upcase(&EM_ACTION) = UPDATE %then %do;
+16012               filename temp catalog 'sashelp.emsamp.Fimport_update.source';
+16013               %include temp;
+16014               filename temp;
+16015               %update;
+16016            %end;
+16017            %else
+16018            %if %upcase(&EM_ACTION) = PROPERTY %then %do;
+16019               filename temp catalog 'sashelp.emsamp.Fimport_actions.source';
+16020               %include temp;
+16021               filename temp;
+16022               %property;
+16023            %end;
+16024             %else
+16025            %if %upcase(&EM_ACTION) = SCORE %then %do;
+16026               filename temp catalog 'sashelp.emsamp.Fimport_score.source';
+16027               %include temp;
+16028               filename temp;
+16029               %score;
+16030            %end;
+16031            %else
+16032            %if %upcase(&EM_ACTION) = REPORT %then %do;
+16033               filename temp catalog 'sashelp.emsamp.Fimport_report.source';
+16034               %include temp;
+16035               filename temp;
+16036               %report;
+16037            %end;
+16038            %else
+16039            %if %upcase(&EM_ACTION) = OPENVARIABLESET %then %do;
+16040               filename temp catalog 'sashelp.emsamp.Fimport_actions.source';
+16041               %include temp;
+16042               filename temp;
+16043               %openvariableset;
+16044            %end;
+16045            %else
+16046            %if %upcase(&EM_ACTION) = CLOSEVARIABLESET %then %do;
+16047               filename temp catalog 'sashelp.emsamp.Fimport_actions.source';
+16048               %include temp;
+16049               filename temp;
+16050               %closevariableset;
+16051            %end;
+16052      %mend main;
+16053      %main;
+MPRINT(EM_DIAGRAM):    
+MPRINT(MAIN):   filename temp catalog 'sashelp.emsamp.Fimport_update.source';
+NOTE: %INCLUDE (level 1) file TEMP is file SASHELP.EMSAMP.FIMPORT_UPDATE.SOURCE.
+16054     +%macro update;
+16055     +    %let oldrole = %str();
+16056     +    data _null_;
+16057     +       set &em_data_exportset;
+16058     +       where NODEPORT='TRAIN';
+16059     +       call symput('oldrole', ROLE);
+16060     +    run;
+16061     +    %if &oldrole ne &em_property_role %then %do;
+16062     +        data &em_data_exportset;
+16063     +           set &em_data_exportset;
+16064     +           if NODEPORT='TRAIN' then do;
+16065     +              ROLE="&em_property_role";
+16066     +              NEEDUPDATE='Y';
+16067     +              EXPORT='Y';
+16068     +           end;
+16069     +        run;
+16070     +        filename x "&EM_NODEDIR.&EM_DSEP._updatePath.st";
+16071     +        data _null_;
+16072     +           file x;
+16073     +           put ' ';
+16074     +        run;
+16075     +        filename x;
+16076     +    %end;
+16077     +    %else %do;
+16078     +        data &em_data_exportset;
+16079     +           set &em_data_exportset;
+16080     +           if NODEPORT='TRAIN' then do;
+16081     +              ROLE="&em_property_role";
+16082     +              NEEDUPDATE='Y';
+16083     +              EXPORT='Y';
+16084     +           end;
+16085     +        run;
+16086     +    %end;
+16087     +
+16088     +    %em_getname(key=EMCMETADEFAULT, type=DATA);
+16089     +    %if %sysfunc(exist(&em_user_emcmetadefault)) and ^%sysfunc(exist(&em_lib..&em_nodeid._CMETA_TRAIN)) %then %do;
+16090     +        data &em_lib..&em_nodeid._CMETA_TRAIN;
+16091     +           set &em_user_emcmetadefault;
+16092     +           drop DROP;
+16093     +           where DROP='N';
+16094     +        run;
+16095     +    %end;
+16096     +
+16097     +%mend update;
+16098     +
+16099     +
+16100     +
+16101     +
+NOTE: %INCLUDE (level 1) ending.
+MPRINT(MAIN):   filename temp;
+NOTE: Fileref TEMP has been deassigned.
+MPRINT(UPDATE):   data _null_;
+MPRINT(UPDATE):   set EMWS1.FIMPORT_ExportSet;
+MPRINT(UPDATE):   where NODEPORT='TRAIN';
+MPRINT(UPDATE):   call symput('oldrole', ROLE);
+MPRINT(UPDATE):   run;
+
+NOTE: There were 1 observations read from the data set EMWS1.FIMPORT_EXPORTSET.
+      WHERE NODEPORT='TRAIN';
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(UPDATE):   data EMWS1.FIMPORT_ExportSet;
+MPRINT(UPDATE):   set EMWS1.FIMPORT_ExportSet;
+MPRINT(UPDATE):   if NODEPORT='TRAIN' then do;
+MPRINT(UPDATE):   ROLE="TRAIN";
+MPRINT(UPDATE):   NEEDUPDATE='Y';
+MPRINT(UPDATE):   EXPORT='Y';
+MPRINT(UPDATE):   end;
+MPRINT(UPDATE):   run;
+
+NOTE: There were 6 observations read from the data set EMWS1.FIMPORT_EXPORTSET.
+NOTE: The data set EMWS1.FIMPORT_EXPORTSET has 6 observations and 18 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(UPDATE):  ;
+MPRINT(MAIN):  ;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * End UPDATE: FIMPORT;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+16102      *------------------------------------------------------------*;
+16103      * End UPDATE: FIMPORT;
+16104      *------------------------------------------------------------*;
+
+16105      %em_delMacro;
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_DIAGRAM):  ;
+
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\FIMPORT\PROPERTIES.xml' encoding="UTF-8" NOBOM;
+16107      %let _HPDMGRIDHOST=;
+16108      %let _HPDMGRIDINSTALLLOC=;
+16109      %let _HPDMGRIDDATASERVER=;
+16110      %hpdm_gridSetOPtions;
+MPRINT(EM_DIAGRAM):   
+MPRINT(HPDM_GRIDSETOPTIONS):   data _null_;
+MPRINT(HPDM_GRIDSETOPTIONS):   length optionString string $2000;
+MPRINT(HPDM_GRIDSETOPTIONS):   optionString = reverse(getoption('SET'));
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDHOST'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   host = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDHOST', strip(host));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDINSTALLLOC'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   install = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDINSTALLLOC', strip(install));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDDATASERVER'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   server = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDDATASERVER', strip(server));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(EM_DIAGRAM):  ;
+
+*------------------------------------------------------------* 
+* 
+* FIMPORT : End update 
+* datetime : 12NOV2015:14:10:10 
+* 
+*------------------------------------------------------------* 
+16111      %em_getactionstatus(emlib =EMWS1, nodeid=FIMPORT);
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_GETACTIONSTATUS):   proc display c=sashelp.emutil.getactionstatus.scl;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+16112      %let em_filemodtime=;
+16113      data _null_;
+MPRINT(EM_GETACTIONSTATUS):   data _null_;
+16114      format modate best.;
+MPRINT(EM_GETACTIONSTATUS):   format modate best.;
+16115      set sashelp.Vextfl;
+MPRINT(EM_GETACTIONSTATUS):   set sashelp.Vextfl;
+16116      where fileref eq "#LN00123";
+MPRINT(EM_GETACTIONSTATUS):   where fileref eq "#LN00123";
+16117      call symput('EM_FILEMODTIME', put(modate, best.));
+MPRINT(EM_GETACTIONSTATUS):   call symput('EM_FILEMODTIME', put(modate, best.));
+16118      run;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+NOTE: There were 1 observations read from the data set SASHELP.VEXTFL.
+      WHERE fileref='#LN00123';
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16119      %symdel em_filemodtime;
+WARNING: Attempt to delete macro variable EM_FILEMODTIME failed. Variable not found.
+16120      %let em_Train = N;
+16121      %let em_Score = N;
+16122      %let em_Report = N;
+16123      %let em_Run = N;
+NOTE: PROCEDURE DISPLAY used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+MPRINT(EM_GETACTIONSTATUS):     
+MPRINT(EM_DIAGRAM):  ;
+
+Node "FIMPORT" has already run. 
+Node "FIMPORT" succeeded. 
+16124      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16125      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16126      put '<Node Id="FIMPORT" Event="Complete" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="FIMPORT" Event="Complete" Pid="952" Gridid=""/>';
+16127      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 57.
+      The maximum record length was 57.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+Traverser: WaitingNode "FILTER" 
+Traverser: WaitingNode "VARSEL" 
+Traverser: WaitingNode "TRANS" 
+Traverser: WaitingNode "BINNING" 
+traverser_readyNode_note 
+16128      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16129      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16130      put '<Node Id="Part" Event="Run" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Part" Event="Run" Pid="952" Gridid=""/>';
+16131      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 49.
+      The maximum record length was 49.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16132      %let emloopmode =;
+*------------------------------------------------------------* 
+* 
+* Part : Beginning update before running 
+* datetime : 12NOV2015:14:10:11 
+* 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):     data WORK.Part_FILTERSET;
+MPRINT(EM_DIAGRAM):   length PORT $32 USE $1;
+MPRINT(EM_DIAGRAM):   DROP DELTACODE APPLYDELTA APPLYSCORE IMPORTPORT;
+MPRINT(EM_DIAGRAM):   set EMWS1.FIMPORT_exportSet ;
+MPRINT(EM_DIAGRAM):   PORT = '';
+MPRINT(EM_DIAGRAM):   USE = '';
+MPRINT(EM_DIAGRAM):   where role in( "RAW" "TRAIN" "DOCUMENT" ) and EXPORT = 'Y' ;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\Part\PROPERTIES.xml' encoding="UTF-8" NOBOM;
+16151      %let _HPDMGRIDHOST=;
+16152      %let _HPDMGRIDINSTALLLOC=;
+16153      %let _HPDMGRIDDATASERVER=;
+16154      %hpdm_gridSetOPtions;
+MPRINT(EM_DIAGRAM):   
+MPRINT(HPDM_GRIDSETOPTIONS):   data _null_;
+MPRINT(HPDM_GRIDSETOPTIONS):   length optionString string $2000;
+MPRINT(HPDM_GRIDSETOPTIONS):   optionString = reverse(getoption('SET'));
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDHOST'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   host = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDHOST', strip(host));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDINSTALLLOC'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   install = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDINSTALLLOC', strip(install));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDDATASERVER'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   server = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDDATASERVER', strip(server));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(EM_DIAGRAM):  ;
+
+*------------------------------------------------------------* 
+* 
+* Part : End update 
+* datetime : 12NOV2015:14:10:11 
+* 
+*------------------------------------------------------------* 
+16155      %em_getactionstatus(emlib =EMWS1, nodeid=Part);
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_GETACTIONSTATUS):   proc display c=sashelp.emutil.getactionstatus.scl;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+16156      %let em_Train = N;
+16157      %let em_Score = N;
+16158      %let em_Report = N;
+16159      %let em_Run = N;
+NOTE: PROCEDURE DISPLAY used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+MPRINT(EM_GETACTIONSTATUS):   
+MPRINT(EM_DIAGRAM):  ;
+
+Node "Part" has already run. 
+Node "Part" succeeded. 
+16160      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16161      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16162      put '<Node Id="Part" Event="Complete" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Part" Event="Complete" Pid="952" Gridid=""/>';
+16163      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 54.
+      The maximum record length was 54.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+Traverser: WaitingNode "VARSEL" 
+Traverser: WaitingNode "TRANS" 
+Traverser: WaitingNode "BINNING" 
+traverser_readyNode_note 
+16164      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16165      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16166      put '<Node Id="Filter" Event="Run" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Filter" Event="Run" Pid="952" Gridid=""/>';
+16167      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 51.
+      The maximum record length was 51.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16168      %let emloopmode =;
+*------------------------------------------------------------* 
+* 
+* Filter : Beginning update before running 
+* datetime : 12NOV2015:14:10:12 
+* 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):     data WORK.Filter_FILTERSET;
+MPRINT(EM_DIAGRAM):   length PORT $32 USE $1;
+MPRINT(EM_DIAGRAM):   DROP DELTACODE APPLYDELTA APPLYSCORE IMPORTPORT;
+MPRINT(EM_DIAGRAM):   set EMWS1.Part_exportSet ;
+MPRINT(EM_DIAGRAM):   PORT = '';
+MPRINT(EM_DIAGRAM):   USE = '';
+MPRINT(EM_DIAGRAM):   where role in( "RAW" "TRAIN" "VALIDATE" "TEST" ) and EXPORT = 'Y' ;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\Filter\PROPERTIES.xml' encoding="UTF-8" NOBOM;
+16188      %let _HPDMGRIDHOST=;
+16189      %let _HPDMGRIDINSTALLLOC=;
+16190      %let _HPDMGRIDDATASERVER=;
+16191      %hpdm_gridSetOPtions;
+MPRINT(EM_DIAGRAM):   
+MPRINT(HPDM_GRIDSETOPTIONS):   data _null_;
+MPRINT(HPDM_GRIDSETOPTIONS):   length optionString string $2000;
+MPRINT(HPDM_GRIDSETOPTIONS):   optionString = reverse(getoption('SET'));
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDHOST'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   host = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDHOST', strip(host));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDINSTALLLOC'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   install = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDINSTALLLOC', strip(install));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDDATASERVER'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   server = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDDATASERVER', strip(server));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):  ;
+
+*------------------------------------------------------------* 
+* 
+* Filter : End update 
+* datetime : 12NOV2015:14:10:12 
+* 
+*------------------------------------------------------------* 
+16192      %em_getactionstatus(emlib =EMWS1, nodeid=Filter);
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_GETACTIONSTATUS):   proc display c=sashelp.emutil.getactionstatus.scl;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+16193      proc compare base=EMWS1.Filter_emtrainvariable compare=EMWS1.Filter_variableSet out=diffDS noprint outnoequal outbase outcomp outdiff;
+MPRINT(EM_GETACTIONSTATUS):   proc compare base=EMWS1.Filter_emtrainvariable compare=EMWS1.Filter_variableSet out=diffDS noprint outnoequal outbase outcomp outdiff;
+16194      run;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+NOTE: There were 17 observations read from the data set EMWS1.FILTER_EMTRAINVARIABLE.
+NOTE: There were 17 observations read from the data set EMWS1.FILTER_VARIABLESET.
+NOTE: The data set WORK.DIFFDS has 0 observations and 13 variables.
+NOTE: PROCEDURE COMPARE used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16195      %let diffVar = N;
+16196      data _null_;
+MPRINT(EM_GETACTIONSTATUS):   data _null_;
+16197      set diffDs end=eof;
+MPRINT(EM_GETACTIONSTATUS):   set diffDs end=eof;
+16198      if eof and _N_>0 then call symput('diffVar', 'Y');
+MPRINT(EM_GETACTIONSTATUS):   if eof and _N_>0 then call symput('diffVar', 'Y');
+16199      run;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+NOTE: There were 0 observations read from the data set WORK.DIFFDS.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16200      %let em_Train = N;
+16201      %let em_Score = N;
+16202      %let em_Report = N;
+16203      %let em_Run = N;
+NOTE: PROCEDURE DISPLAY used (Total process time):
+      real time           0.06 seconds
+      cpu time            0.04 seconds
+      
+
+MPRINT(EM_GETACTIONSTATUS):    
+MPRINT(EM_DIAGRAM):  ;
+
+Node "Filter" has already run. 
+Node "Filter" succeeded. 
+16204      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16205      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16206      put '<Node Id="Filter" Event="Complete" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Filter" Event="Complete" Pid="952" Gridid=""/>';
+16207      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 56.
+      The maximum record length was 56.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+Traverser: WaitingNode "TRANS" 
+Traverser: WaitingNode "BINNING" 
+traverser_readyNode_note 
+16208      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16209      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16210      put '<Node Id="Varsel" Event="Run" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Varsel" Event="Run" Pid="952" Gridid=""/>';
+16211      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 51.
+      The maximum record length was 51.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+16212      %let emloopmode =;
+*------------------------------------------------------------* 
+* 
+* Varsel : Beginning update before running 
+* datetime : 12NOV2015:14:10:13 
+* 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):     data WORK.Varsel_FILTERSET;
+MPRINT(EM_DIAGRAM):   length PORT $32 USE $1;
+MPRINT(EM_DIAGRAM):   DROP DELTACODE APPLYDELTA APPLYSCORE IMPORTPORT;
+MPRINT(EM_DIAGRAM):   set EMWS1.Filter_exportSet ;
+MPRINT(EM_DIAGRAM):   PORT = '';
+MPRINT(EM_DIAGRAM):   USE = '';
+MPRINT(EM_DIAGRAM):   where role in( "RAW" "TRAIN" "VALIDATE" "TEST" ) and EXPORT = 'Y' ;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\Varsel\PROPERTIES.xml' encoding="UTF-8" NOBOM;
+16232      %let _HPDMGRIDHOST=;
+16233      %let _HPDMGRIDINSTALLLOC=;
+16234      %let _HPDMGRIDDATASERVER=;
+16235      %hpdm_gridSetOPtions;
+MPRINT(EM_DIAGRAM):   
+MPRINT(HPDM_GRIDSETOPTIONS):   data _null_;
+MPRINT(HPDM_GRIDSETOPTIONS):   length optionString string $2000;
+MPRINT(HPDM_GRIDSETOPTIONS):   optionString = reverse(getoption('SET'));
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDHOST'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   host = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDHOST', strip(host));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDINSTALLLOC'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   install = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDINSTALLLOC', strip(install));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDDATASERVER'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   server = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDDATASERVER', strip(server));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):  ;
+
+*------------------------------------------------------------* 
+* 
+* Varsel : End update 
+* datetime : 12NOV2015:14:10:13 
+* 
+*------------------------------------------------------------* 
+16236      %em_getactionstatus(emlib =EMWS1, nodeid=Varsel);
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_GETACTIONSTATUS):   proc display c=sashelp.emutil.getactionstatus.scl;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+16237      %let em_Train = N;
+16238      %let em_Score = N;
+16239      %let em_Report = N;
+16240      %let em_Run = N;
+NOTE: PROCEDURE DISPLAY used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_GETACTIONSTATUS):   
+MPRINT(EM_DIAGRAM):  ;
+
+Node "Varsel" has already run. 
+Node "Varsel" succeeded. 
+16241      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16242      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16243      put '<Node Id="Varsel" Event="Complete" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Varsel" Event="Complete" Pid="952" Gridid=""/>';
+16244      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 56.
+      The maximum record length was 56.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+Traverser: WaitingNode "BINNING" 
+traverser_readyNode_note 
+16245      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16246      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16247      put '<Node Id="Trans" Event="Run" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Trans" Event="Run" Pid="952" Gridid=""/>';
+16248      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 50.
+      The maximum record length was 50.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+16249      %let emloopmode =;
+*------------------------------------------------------------* 
+* 
+* Trans : Beginning update before running 
+* datetime : 12NOV2015:14:10:13 
+* 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):     data WORK.Trans_FILTERSET;
+MPRINT(EM_DIAGRAM):   length PORT $32 USE $1;
+MPRINT(EM_DIAGRAM):   DROP DELTACODE APPLYDELTA APPLYSCORE IMPORTPORT;
+MPRINT(EM_DIAGRAM):   set EMWS1.Varsel_exportSet ;
+MPRINT(EM_DIAGRAM):   PORT = '';
+MPRINT(EM_DIAGRAM):   USE = '';
+MPRINT(EM_DIAGRAM):   where role in( "RAW" "TRAIN" "VALIDATE" "TEST" ) and EXPORT = 'Y' ;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\Trans\PROPERTIES.xml' encoding="UTF-8" NOBOM;
+16269      %let _HPDMGRIDHOST=;
+16270      %let _HPDMGRIDINSTALLLOC=;
+16271      %let _HPDMGRIDDATASERVER=;
+16272      %hpdm_gridSetOPtions;
+MPRINT(EM_DIAGRAM):   
+MPRINT(HPDM_GRIDSETOPTIONS):   data _null_;
+MPRINT(HPDM_GRIDSETOPTIONS):   length optionString string $2000;
+MPRINT(HPDM_GRIDSETOPTIONS):   optionString = reverse(getoption('SET'));
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDHOST'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   host = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDHOST', strip(host));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDINSTALLLOC'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   install = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDINSTALLLOC', strip(install));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDDATASERVER'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   server = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDDATASERVER', strip(server));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):  ;
+
+*------------------------------------------------------------* 
+* 
+* Trans : End update 
+* datetime : 12NOV2015:14:10:13 
+* 
+*------------------------------------------------------------* 
+16273      %em_getactionstatus(emlib =EMWS1, nodeid=Trans);
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_GETACTIONSTATUS):   proc display c=sashelp.emutil.getactionstatus.scl;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+16274      %let em_filemodtime=;
+16275      data _null_;
+MPRINT(EM_GETACTIONSTATUS):   data _null_;
+16276      format modate best.;
+MPRINT(EM_GETACTIONSTATUS):   format modate best.;
+16277      set sashelp.Vextfl;
+MPRINT(EM_GETACTIONSTATUS):   set sashelp.Vextfl;
+16278      where fileref eq "#LN00212";
+MPRINT(EM_GETACTIONSTATUS):   where fileref eq "#LN00212";
+16279      call symput('EM_FILEMODTIME', put(modate, best.));
+MPRINT(EM_GETACTIONSTATUS):   call symput('EM_FILEMODTIME', put(modate, best.));
+16280      run;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+NOTE: There were 1 observations read from the data set SASHELP.VEXTFL.
+      WHERE fileref='#LN00212';
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16281      %symdel em_filemodtime;
+WARNING: Attempt to delete macro variable EM_FILEMODTIME failed. Variable not found.
+16282      %let em_filemodtime=;
+16283      data _null_;
+MPRINT(EM_GETACTIONSTATUS):     data _null_;
+16284      format modate best.;
+MPRINT(EM_GETACTIONSTATUS):   format modate best.;
+16285      set sashelp.Vextfl;
+MPRINT(EM_GETACTIONSTATUS):   set sashelp.Vextfl;
+16286      where fileref eq "#LN00213";
+MPRINT(EM_GETACTIONSTATUS):   where fileref eq "#LN00213";
+16287      call symput('EM_FILEMODTIME', put(modate, best.));
+MPRINT(EM_GETACTIONSTATUS):   call symput('EM_FILEMODTIME', put(modate, best.));
+16288      run;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+NOTE: There were 1 observations read from the data set SASHELP.VEXTFL.
+      WHERE fileref='#LN00213';
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+16289      %symdel em_filemodtime;
+WARNING: Attempt to delete macro variable EM_FILEMODTIME failed. Variable not found.
+16290      %let em_Train = N;
+16291      %let em_Score = N;
+16292      %let em_Report = N;
+16293      %let em_Run = N;
+NOTE: PROCEDURE DISPLAY used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.06 seconds
+      
+
+MPRINT(EM_GETACTIONSTATUS):     
+MPRINT(EM_DIAGRAM):  ;
+
+Node "Trans" has already run. 
+Node "Trans" succeeded. 
+16294      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16295      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16296      put '<Node Id="Trans" Event="Complete" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="Trans" Event="Complete" Pid="952" Gridid=""/>';
+16297      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 55.
+      The maximum record length was 55.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+traverser_readyNode_note 
+16298      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+16299      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+16300      put '<Node Id="BINNING" Event="Run" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="BINNING" Event="Run" Pid="952" Gridid=""/>';
+16301      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 52.
+      The maximum record length was 52.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+16302      %let emloopmode =;
+*------------------------------------------------------------* 
+* 
+* BINNING : Beginning update before running 
+* datetime : 12NOV2015:14:10:14 
+* 
+*------------------------------------------------------------* 
+MPRINT(EM_DIAGRAM):     data WORK.BINNING_FILTERSET;
+MPRINT(EM_DIAGRAM):   length PORT $32 USE $1;
+MPRINT(EM_DIAGRAM):   DROP DELTACODE APPLYDELTA APPLYSCORE IMPORTPORT;
+MPRINT(EM_DIAGRAM):   set EMWS1.Trans_exportSet ;
+MPRINT(EM_DIAGRAM):   PORT = '';
+MPRINT(EM_DIAGRAM):   USE = '';
+MPRINT(EM_DIAGRAM):   where role in( "RAW" "TRAIN" "VALIDATE" "TEST" "SCORE" "TRANSACTION" "DOCUMENT" "RULES" "REPORTFIT" "RANK" "SCOREDIST" "ESTIMATE" "TREE" "CLUSSTAT" "CLUSMEAN" "VARMAP" ) and EXPORT = 'Y' ;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * BINNING: Generation of macros and macro variables;
+MPRINT(EM_DIAGRAM):   * To see the code generated, set the EM_DEBUG macro variable to SOURCE or _ALL_;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * BINNING: EM Macro Variables and Macros;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * System Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   length string $2000;
+MPRINT(EM_DIAGRAM):   string = 'Project_4';
+MPRINT(EM_DIAGRAM):   call symput('EM_PROJECTNAME', trim(string));
+MPRINT(EM_DIAGRAM):   string = 'P4';
+MPRINT(EM_DIAGRAM):   call symput('EM_WSNAME', trim(string));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * Properties Macro Variables ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Files Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Import Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Export Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Decision Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * Statement Macro Variables;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+16550      %let emexceptionString =;
+16551      %let EMEXCEPTIONSTRING=;
+16552      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+16553      * UPDATE: BINNING;
+MPRINT(EM_DIAGRAM):   * UPDATE: BINNING;
+16554      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+16555      %let EM_ACTION = UPDATE;
+16556      %let syscc = 0;
+16557      %macro main;
+16558      
+16559        filename temp catalog 'sashelp.emmdfy.binning_macros.source';
+16560        %include temp;
+16561        filename temp;
+16562      
+16563        %setProperties;
+16564      
+16565        %if %upcase(&EM_ACTION) = CREATE %then %do;
+16566          filename temp catalog 'sashelp.emmdfy.binning_create.source';
+16567          %include temp;
+16568          filename temp;
+16569      
+16570          %create;
+16571        %end;
+16572      
+16573         %else
+16574         %if %upcase(&EM_ACTION) = TRAIN %then %do;
+16575      
+16576             filename temp catalog 'sashelp.emmdfy.binning_train.source';
+16577             %include temp;
+16578             filename temp;
+16579             %train;
+16580         %end;
+16581      
+16582        %else
+16583        %if %upcase(&EM_ACTION) = SCORE %then %do;
+16584          filename temp catalog 'sashelp.emmdfy.binning_score.source';
+16585          %include temp;
+16586          filename temp;
+16587      
+16588          %score;
+16589      
+16590        %end;
+16591      
+16592        %else
+16593        %if %upcase(&EM_ACTION) = REPORT %then %do;
+16594      
+16595             filename temp catalog 'sashelp.emmdfy.binning_report.source';
+16596             %include temp;
+16597             filename temp;
+16598      
+16599             %report;
+16600         %end;
+16601      
+16602         %doendm:
+16603      %mend main;
+16604      
+16605      %main;
+MPRINT(EM_DIAGRAM):    
+MPRINT(MAIN):   filename temp catalog 'sashelp.emmdfy.binning_macros.source';
+NOTE: %INCLUDE (level 1) file TEMP is file SASHELP.EMMDFY.BINNING_MACROS.SOURCE.
+16606     +
+16607     +%macro SetProperties;
+16608     +
+16609     +     /* IGN options */
+16610     +     %em_checkmacro(name=EM_PROPERTY_APPLYLEVELRULE, value=N, global=Y);
+16611     +     %em_checkmacro(name=EM_PROPERTY_BINMETHOD,  value=QUANTILE, global=Y);
+16612     +     %em_checkmacro(name=EM_PROPERTY_NUMBINS,    value=4, global=Y);
+16613     +
+16614     +     %em_checkmacro(name=EM_PROPERTY_MISSINGASLEVEL, value=Y, global=Y);
+16615     +     %em_checkmacro(name=EM_PROPERTY_PRECISION,    value=2, global=Y);
+16616     +     %em_checkmacro(name=EM_PROPERTY_CREATEGROUPING, value=N, global=Y);
+16617     +     %em_checkmacro(name=EM_PROPERTY_CREATEMETHOD, value=OVERWRITE, global=Y);
+16618     +     %em_checkmacro(name=EM_PROPERTY_IMPORTGROUPING, value=N, global=Y);
+16619     +     %em_checkmacro(name=EM_PROPERTY_IMPORTDATA, value=, global=Y);
+16620     +     %em_checkmacro(name=EM_PROPERTY_FREEZE, value=N, global=Y);
+16621     +     %em_checkmacro(name=EM_PROPERTY_VARSELMETHOD, value=GINI, global=Y);
+16622     +     %em_checkmacro(name=EM_PROPERTY_GINICUTOFF,   value=20.0, global=Y);
+16623     +     %em_checkmacro(name=EM_PROPERTY_GRPMSMNT,     value=ORDINAL, global=Y);
+16624     +     %em_checkmacro(name=EM_PROPERTY_MAXVAR,       value=10, global=Y);
+16625     +     %em_checkmacro(name=EM_PROPERTY_CLASSGROUPRARE, value=Y, global=Y);
+16626     +     %em_checkmacro(name=EM_PROPERTY_GROUPCUTOFF,    value=0.5, global=Y);
+16627     +     %em_checkmacro(name=EM_PROPERTY_GROUPMISSING,   value=N, global=Y);
+16628     +
+16629     +     %em_checkmacro(name=EM_PROPERTY_INTTARGETMETHOD, value=CUTMEAN, global=Y);
+16630     +     %em_checkmacro(name=EM_PROPERTY_USERCUTVALUE, value=0.2, global=Y);
+16631     +     %em_checkmacro(name=EM_PROPERTY_RejectIntTarget, value=N, global=Y);
+16632     +
+16633     +
+16634     +%mend SetProperties;
+16635     +%macro appendfiles(fileref1, fileref2);
+16636     +     data _null_;
+16637     +       length c $256;
+16638     +       fid1=fopen("&fileref1",'A');
+16639     +       fid2=fopen("&fileref2",'I');
+16640     +       cval = finfo(fid2,'lrecl');
+16641     +       put cval= fid1= fid2=;
+16642     +       if (fid2 > 0) then
+16643     +         do while(fread(fid2)=0);
+16644     +           rc = fget(fid2,c,256);
+16645     +           _msg_=sysmsg();
+16646     +           /* put rc= c= _msg_=; */
+16647     +           rc = fput(fid1,strip(c));
+16648     +           rc = fwrite(fid1);
+16649     +         end;
+16650     +         _msg_=sysmsg();
+16651     +         put _msg_=;
+16652     +       rc = fclose(fid1);
+16653     +       rc = fclose(fid2);
+16654     +     run;
+16655     +%mend appendfiles;
+16656     +
+16657     +%macro buildOptScoreCode;
+16658     +
+16659     +    %em_register(key=BINCODE, type=FOLDER);
+16660     +
+16661     +    filename x catalog 'sashelp.emutil.em_deldir.source';
+16662     +    %inc x;
+16663     +    filename x;
+16664     +    %delDir(folder=%nrbquote(&em_user_bincode));
+16665     +
+16666     +    data _null_; length rc $200;
+16667     +       rc = dcreate('BINCODE', "&EM_NODEDIR");
+16668     +    run;
+16669     +
+16670     +    %if ^%sysfunc(exist(class_nosv)) %then %goto doendu;
+16671     +
+16672     +    %let dsid = %sysfunc(open(class_nosv));
+16673     +    %let nameNum    = %sysfunc(varnum(&dsid, DISPLAY_VAR));
+16674     +    %let grpnameNum = %sysfunc(varnum(&dsid, _grp_variable_));
+16675     +
+16676     +    %let oldname=;
+16677     +    %do %while(^%sysfunc(fetch(&dsid)));
+16678     +        %let name    = %sysfunc(getvarc(&dsid, &nameNum));
+16679     +        %let grpname = %sysfunc(getvarc(&dsid, &grpnameNum));
+16680     +
+16681     +        %if &name ne &oldname %then %do;
+16682     +             filename _F1 "&em_user_bincode&em_dsep.&grpname..sas" MOD;
+16683     +             data _null_;
+16684     +                length string $200 flag endflag 8;
+16685     +                retain string flag endflag;
+16686     +                set class_nosv end=eof;
+16687     +                where DISPLAY_VAR ="&name";
+16688     +                by _variable_ _group_;
+16689     +                file _F1;
+16690     +                index = kindex(_variable_, "BIN_");
+16691     +                if index gt 0 then do;
+16692     +                   if first._variable_ then do;
+16693     +                      put ' ';
+16694     +                      put "&EM_CODEBAR;";
+16695     +                      string= "* Variable: "!!strip(DISPLAY_VAR)!!";";
+16696     +                      put string;
+16697     +                      put "&EM_CODEBAR;";
+16698     +
+16699     +                      if origLabel ne "" then do;
+16700     +                            string = 'LABEL '!!strip(_grp_variable_)!!' = ';
+16701     +                            put string;
+16702     +                            string = tranwrd(origLabel,"'","''");
+16703     +                            string = "'Grouped: "!!%nrbquote(strip(substr(string, 1,188)))!!"';";
+16704     +                            put string;
+16705     +                      end;
+16706     +                      else do;
+16707     +                             string = 'LABEL '!!strip(_grp_variable_)!!' = "Grouped: '!!%nrbquote(strip(DISPLAY_VAR))!!'";';
+16708     +                             put string;
+16709     +                      end;
+16710     +
+16711     +                      put ' ';
+16712     +
+16713     +                      string =  "if MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+16714     +                      put string;
+16715     +                      string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+16716     +                      put string;
+16717     +                      put "end;";
+16718     +                      string = "else if NOT MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+16719     +                      put string;
+16720     +                   end;
+16721     +                   if first._group_ then do;
+16722     +                      flag = 0;
+16723     +                      endflag = 1;
+16724     +                      if ^first._variable_ then do;
+16725     +                         put "else";
+16726     +                      end;
+16727     +                      if LB ne . then do;
+16728     +                         string = "if "!!strip(LB)!!" <= "!!strip(DISPLAY_VAR);
+16729     +                      end;
+16730     +                      else do;
+16731     +                         flag = 1;
+16732     +                         string = "if";
+16733     +                      end;
+16734     +                   end;
+16735     +                   if last._Group_ then do;
+16736     +                      if UB ne . then do;
+16737     +                        if flag ne 1 then do;
+16738     +                          string = strip(string)!!" AND "!!strip(DISPLAY_VAR)!!" < "!!strip(UB)!!" then do;";
+16739     +                        end;
+16740     +                        else do;
+16741     +                          string = "if "!!strip(DISPLAY_VAR)!!" < "!!strip(UB)!!" then do;";
+16742     +                        end;
+16743     +                      end;
+16744     +                      else do;
+16745     +                         if flag=1 then do;
+16746     +                            string = strip(DISPLAY_VAR) ;
+16747     +                            string = strip(string)!!'='!!strip(_split_Value_)!!" then do;";
+16748     +                            endflag=0;
+16749     +                            string="";
+16750     +                         end;
+16751     +                         else do;
+16752     +                            string = strip(string)!!" then do;";
+16753     +                         end;
+16754     +                      end;
+16755     +                      put string;
+16756     +                      string = strip(_grp_variable_)!!" = "!!strip(_GROUP_)!!";";
+16757     +                      put string;
+16758     +                      if endflag eq 1 then do;
+16759     +                        put "end;";
+16760     +                      end;
+16761     +                   end;
+16762     +                   if last._variable_ then do;
+16763     +                     string = "end;";
+16764     +                     put string;
+16765     +                   end;
+16766     +
+16767     +                end;
+16768     +                else do;
+16769     +                   _split_value_ = tranwrd(_split_value_,"'","''");
+16770     +                   if first._group_ then do;
+16771     +                      flag=0;
+16772     +                      if ^first._variable_ then
+16773     +                         put 'else';
+16774     +                      else do;
+16775     +                         put ' ';
+16776     +                         put "&EM_CODEBAR;";
+16777     +                         string= "* Variable: "!!strip(DISPLAY_VAR)!!";";
+16778     +                         put string;
+16779     +                         put "&EM_CODEBAR;";
+16780     +
+16781     +                         if origLabel ne "" then do;
+16782     +                               string = 'LABEL '!!strip(_grp_variable_)!!' = ';
+16783     +                               put string;
+16784     +                               string = tranwrd(origLabel,"'","''");
+16785     +                               string = "'Grouped: "!!%nrbquote(strip(substr(string, 1,188)))!!"';";
+16786     +                               put string;
+16787     +                         end;
+16788     +                         else do;
+16789     +                               string = 'LABEL '!!strip(_grp_variable_)!!' = "Grouped: '!!%nrbquote(strip(DISPLAY_VAR))!!'";';
+16790     +                               put string;
+16791     +                         end;
+16792     +
+16793     +                         put ' ';
+16794     +
+16795     +                         if format ne '' then do;
+16796     +                            if first._variable_ then do;
+16797     +                               string = "_UFormat = put("!!strip(DISPLAY_VAR)!!","!!strip(format)!!");";
+16798     +                               put string;
+16799     +                               string = '%dmnormip(_UFormat);';
+16800     +                               put string;
+16801     +
+16802     +                               string ="if MISSING(_UFORMAT) then do;";
+16803     +                               put string;
+16804     +                               string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+16805     +                               put string;
+16806     +                               put "end;";
+16807     +
+16808     +                               string="else if NOT MISSING(_UFORMAT) then do;";
+16809     +                               put string;
+16810     +
+16811     +                            end;
+16812     +                         end;
+16813     +                         else do;
+16814     +                            if type = 'N' then do;
+16815     +                              string ="if MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+16816     +                              put string;
+16817     +                              string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+16818     +                              put string;
+16819     +                              put "end;";
+16820     +
+16821     +                              string="else if NOT MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+16822     +                              put string;
+16823     +                            end;
+16824     +                            else if type='C' then do;
+16825     +                              string = "_UFormat = "||strip(DISPLAY_VAR)||";";
+16826     +                              put string;
+16827     +                              string = '%dmnormip(_UFormat);';
+16828     +                              put string;
+16829     +
+16830     +                              string ="if MISSING(_UFORMAT) then do;";
+16831     +                              put string;
+16832     +                              string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+16833     +                              put string;
+16834     +                              put "end;";
+16835     +
+16836     +                              string="else if NOT MISSING(_UFORMAT) then do;";
+16837     +                              put string;
+16838     +                              string = '%dmnormip(_UFormat);';
+16839     +                              put string;
+16840     +                           end;
+16841     +                         end;
+16842     +                      end;
+16843     +                      if format ne '' OR type='C' then do;
+16844     +                        string = "if (_UFORMAT eq '"!!strip(_split_value_)!!"'";
+16845     +                      end;
+16846     +                      else do;
+16847     +                        string = "if ("!!strip(DISPLAY_VAR)!!" eq "!!strip(_split_value_);
+16848     +                      end;
+16849     +                   end;
+16850     +                   else do;
+16851     +                      if flag ne 1 then do;
+16852     +                       if format ne '' OR type='C' then do;
+16853     +                         tempstring = strip(string)!!" OR _UFORMAT eq '"!!strip(_split_value_)!!"'";
+16854     +                       end;
+16855     +                       else do;
+16856     +                         tempstring = strip(string)!!" OR "!!strip(DISPLAY_VAR)!!" eq "!!strip(_split_value_);
+16857     +                       end;
+16858     +                         length = length(tempstring);
+16859     +
+16860     +                         if length < 195 then do;
+16861     +                            string = tempstring;
+16862     +                         end;
+16863     +                         else do;
+16864     +
+16865     +                            string = strip(string);
+16866     +                            put string;
+16867     +                            string = ") then do;";
+16868     +                            put string;
+16869     +
+16870     +                            string = strip(_grp_variable_)!!" = "!!strip(_GROUP_)!!";";
+16871     +                            put string;
+16872     +                            put "end;";
+16873     +
+16874     +                            put 'else';
+16875     +                            if format ne '' OR type='C' then do;
+16876     +                              string = "if (_UFORMAT eq '"!!strip(_split_value_)!!"'";
+16877     +                            end;
+16878     +                            else do;
+16879     +                              string = "if "!!strip(DISPLAY_VAR)!!" eq ("!!strip(_split_value_);
+16880     +                            end;
+16881     +                         end;
+16882     +                      end;
+16883     +                   end;
+16884     +
+16885     +                   if last._group_ then do;
+16886     +                      string = strip(string);
+16887     +                      put string;
+16888     +
+16889     +                      string = ") then do;";
+16890     +                      put string;
+16891     +
+16892     +                      string = strip(_grp_variable_)!!" = "!!strip(_GROUP_)!!";";
+16893     +                      put string;
+16894     +                      put "end;";
+16895     +                   end;
+16896     +
+16897     +                   if last._variable_ then do;
+16898     +                     put "else do;";
+16899     +
+16900     +                     string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+16901     +                     put string;
+16902     +
+16903     +                     put "end;";
+16904     +                     put "end;";
+16905     +                   end;
+16906     +                end;
+16907     +             run;
+16908     +
+16909     +             %let oldname = &name;
+16910     +        %end;
+16911     +    %end;
+16912     +    %let dsid = %sysfunc(close(&dsid));
+16913     +
+16914     +    filename _F1 "&em_user_bincode&em_dsep._ALL_.sas";
+16915     +    data _null_;
+16916     +       file _F1;
+16917     +       put "length _UFormat $200;";
+16918     +       put "drop _UFormat;";
+16919     +       put "_UFormat='';";
+16920     +    run;
+16921     +    filename _F1;
+16922     +
+16923     +   %em_register(key=EMSCOREVAR, type=DATA);
+16924     +   %let scorevarDs = %scan(&em_user_emscorevar, 2, .);
+16925     +   proc datasets lib=&em_lib nolist;
+16926     +      delete &scorevarDs;
+16927     +   run;
+16928     +   quit;
+16929     +
+16930     +   %let filrf=mydir;
+16931     +   %let rc=%sysfunc(filename(filrf,&em_user_bincode));
+16932     +   %let did=%sysfunc(dopen(&filrf));
+16933     +
+16934     +   %if &did %then %do;  %PUT  did= &did;
+16935     +       %let memcount=%sysfunc(dnum(&did));
+16936     +       %if &memcount > 0 %then %do;
+16937     +           data &em_user_emscorevar;
+16938     +              length Name $32 formula $70 file $200;
+16939     +              keep NAME Formula file;
+16940     +              formula  = '';
+16941     +           %if %sysfunc(fileexist(&em_user_bincode&em_dsep._ALL_.sas)) %then %do;
+16942     +               name=''; file="BINCODE&em_dsep._ALL_.sas";
+16943     +               output;
+16944     +           %end;
+16945     +           %do i=1 %to &memcount;
+16946     +               %let name =%nrbquote(%sysfunc(dread(&did,&i)));
+16947     +               %let newvar = %scan(&name, 1, .);
+16948     +               %if "&newvar" ne "_ALL_" %then %do;
+16949     +                   name = "&newvar"; file="BINCODE&em_dsep&name";
+16950     +                   output;
+16951     +               %end;
+16952     +           %end;
+16953     +
+16954     +           run;
+16955     +       %end;
+16956     +       %let did = %sysfunc(dclose(&did));
+16957     +  %end;
+16958     +
+16959     +   %doendu:
+16960     +%mend buildOptScoreCode;
+16961     +
+16962     +
+16963     +%macro buildScoreCode(flowCode, publishCode);
+16964     +
+16965     +
+16966     +  filename x "&flowCode";
+16967     +
+16968     +  proc sort data=&EM_USER_SPLITVALS; by display_var _split_Value_; run;
+16969     +  proc sort data=&EM_USER_BINMAPPINGS; by display_var bin; run;
+16970     +  proc sort data=&EM_USER_coarse out=tempcoarse; by display_var _group_; run;
+16971     +
+16972     +  data temp;
+16973     +    merge &EM_USER_SPLITVALS &EM_USER_BINMAPPINGS(rename=(BIN=_SPLIT_VALUE_ BIN_NAME=_VARIABLE_));
+16974     +    by display_var _Split_value_;
+16975     +     if upcase(_Split_value_) ne 'MISSING';
+16976     +   run;
+16977     +
+16978     +   data temp_missing;
+16979     +     merge &EM_USER_SPLITVALS(rename=(_GROUP_=MISSGRP)) &EM_USER_BINMAPPINGS(rename=(
+16980     +          BIN=_SPLIT_VALUE_ BIN_NAME=_VARIABLE_));
+16981     +     by display_var _Split_value_;
+16982     +     if upcase(_Split_value_) eq 'MISSING';
+16983     +     keep _variable_ display_var missgrp;
+16984     +   run;
+16985     +
+16986     +   proc sort data=temp_missing; by display_var missgrp; run;
+16987     +
+16988     +   data temp_missing;
+16989     +     merge temp_missing(in=_a) tempcoarse(rename=(_GROUP_=MISSGRP));
+16990     +     by display_var missgrp;
+16991     +     if ^_a then delete;
+16992     +     keep _variable_ display_var missgrp ;
+16993     +   run;
+16994     +
+16995     +   data temp;
+16996     +     merge temp temp_missing;
+16997     +     by display_var;
+16998     +     if display_Var eq '' then delete;
+16999     +    run;
+17000     +
+17001     +    /* pull in wtev values */
+17002     +    proc sort data=&EM_USER_varmappings out=tempmappings; by _variable_; run;
+17003     +    proc sort data=&EM_IMPORT_DATA_CMETA out=tempcmeta; by NAME; run;
+17004     +    proc sort data=temp;  by display_var _group_; run;
+17005     +
+17006     +   data temp;
+17007     +      merge temp tempcoarse(keep=display_var _group_  role) ;
+17008     +      by display_var _group_;
+17009     +    run;
+17010     +
+17011     +    data temp;
+17012     +      merge temp tempmappings(rename=(_variable_ = display_var)) tempcmeta(keep=NAME FORMAT TYPE LABEL rename=(NAME=display_var LABEL=origLabel));
+17013     +      by display_var;
+17014     +
+17015     +      if _group_ = . then delete;
+17016     +      if _variable_ = '' then delete;
+17017     +    run;
+17018     +
+17019     +    proc sort data=temp out=class;
+17020     +       by _variable_ _group_ LB;
+17021     +    run;
+17022     +
+17023     +    data _null_;
+17024     +      file X;
+17025     +
+17026     +      put "length _UFormat $200;";
+17027     +      put "drop _UFormat;";
+17028     +      put "_UFormat='';";
+17029     +    run;
+17030     +
+17031     +    data class_nosv;
+17032     +      set class;
+17033     +      if upcase(role)="INPUT";
+17034     +    run;
+17035     +
+17036     +    data _null_;
+17037     +       file X MOD;
+17038     +       length string $200 flag endflag 8;
+17039     +       retain string flag endflag;
+17040     +       set class_nosv end=eof;
+17041     +       by _variable_ _group_;
+17042     +
+17043     +       index = kindex(_variable_, "BIN_");
+17044     +       if index gt 0 then do;
+17045     +
+17046     +         if first._variable_ then do;
+17047     +            put ' ';
+17048     +            put "&EM_CODEBAR;";
+17049     +            string= "* Variable: "!!strip(DISPLAY_VAR)!!";";
+17050     +            put string;
+17051     +            put "&EM_CODEBAR;";
+17052     +
+17053     +
+17054     +            if origLabel ne "" then do;
+17055     +              string = 'LABEL '!!strip(_grp_variable_)!!' = ';
+17056     +              put string;
+17057     +              string = tranwrd(origLabel,"'","''");
+17058     +              string = "'Grouped: "!!%nrbquote(strip(substr(string, 1,188)))!!"';";
+17059     +              put string;
+17060     +            end;
+17061     +            else do;
+17062     +             string = 'LABEL '!!strip(_grp_variable_)!!' = "Grouped: '!!%nrbquote(strip(DISPLAY_VAR))!!'";';
+17063     +             put string;
+17064     +            end;
+17065     +
+17066     +            put ' ';
+17067     +
+17068     +            string =  "if MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+17069     +            put string;
+17070     +            string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+17071     +            put string;
+17072     +            put "end;";
+17073     +            string = "else if NOT MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+17074     +            put string;
+17075     +          end;
+17076     +           if first._group_ then do;
+17077     +              flag = 0;
+17078     +              endflag = 1;
+17079     +              if ^first._variable_ then do;
+17080     +                put "else";
+17081     +              end;
+17082     +              if LB ne . then do;
+17083     +                 string = "if "!!strip(LB)!!" <= "!!strip(DISPLAY_VAR);
+17084     +              end;
+17085     +              else do;
+17086     +                 flag = 1;
+17087     +                 string = "if";
+17088     +              end;
+17089     +
+17090     +           end;
+17091     +           if last._Group_ then do;
+17092     +              if UB ne . then do;
+17093     +                if flag ne 1 then do;
+17094     +                  string = strip(string)!!" AND "!!strip(DISPLAY_VAR)!!" < "!!strip(UB)!!" then do;";
+17095     +                end;
+17096     +                else do;
+17097     +                  string = "if "!!strip(DISPLAY_VAR)!!" < "!!strip(UB)!!" then do;";
+17098     +                end;
+17099     +              end;
+17100     +              else do;
+17101     +                 if flag=1 then do;
+17102     +                   string = strip(DISPLAY_VAR) ;
+17103     +                   string = strip(string)!!'='!!strip(_split_Value_)!!" then do;";
+17104     +                   endflag = 0;
+17105     +                   string="";
+17106     +                 end;
+17107     +                 else do;
+17108     +                   string = strip(string)!!" then do;";
+17109     +                 end;
+17110     +              end;
+17111     +              put string;
+17112     +
+17113     +              string = strip(_grp_variable_)!!" = "!!strip(_GROUP_)!!";";
+17114     +              put string;
+17115     +              if endflag eq 1 then do;
+17116     +                put "end;";
+17117     +              end;
+17118     +           end;
+17119     +           if last._variable_ then do;
+17120     +             string = "end;";
+17121     +             put string;
+17122     +           end;
+17123     +       end;
+17124     +       else do;
+17125     +           _split_value_ = tranwrd(_split_value_,"'","''");
+17126     +           if first._group_ then do;
+17127     +              flag=0;
+17128     +              if ^first._variable_ then
+17129     +                 put 'else';
+17130     +              else do;
+17131     +                 put ' ';
+17132     +                 put "&EM_CODEBAR;";
+17133     +                 string= "* Variable: "!!strip(DISPLAY_VAR)!!";";
+17134     +                 put string;
+17135     +                 put "&EM_CODEBAR;";
+17136     +
+17137     +                 if origLabel ne "" then do;
+17138     +                   string = 'LABEL '!!strip(_grp_variable_)!!' = ';
+17139     +                   put string;
+17140     +                   string = tranwrd(origLabel,"'","''");
+17141     +                   string = "'Grouped: "!!%nrbquote(strip(substr(string, 1,188)))!!"';";
+17142     +                   put string;
+17143     +                 end;
+17144     +                 else do;
+17145     +                   string = 'LABEL '!!strip(_grp_variable_)!!' = "Grouped: '!!%nrbquote(strip(DISPLAY_VAR))!!'";';
+17146     +                   put string;
+17147     +                 end;
+17148     +
+17149     +                 put ' ';
+17150     +
+17151     +                if format ne '' then do;
+17152     +                  if first._variable_ then do;
+17153     +                    string = "_UFormat = put("!!strip(DISPLAY_VAR)!!","!!strip(format)!!");";
+17154     +                    put string;
+17155     +                    string = '%dmnormip(_UFormat);';
+17156     +                    put string;
+17157     +
+17158     +                     string ="if MISSING(_UFORMAT) then do;";
+17159     +                     put string;
+17160     +                     string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+17161     +                     put string;
+17162     +                     put "end;";
+17163     +
+17164     +                     string="else if NOT MISSING(_UFORMAT) then do;";
+17165     +                     put string;
+17166     +
+17167     +                  end;
+17168     +                end;
+17169     +                else do;
+17170     +                     if type = 'N' then do;
+17171     +                       string ="if MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+17172     +                       put string;
+17173     +                       string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+17174     +                       put string;
+17175     +                       put "end;";
+17176     +
+17177     +                       string="else if NOT MISSING("!!strip(DISPLAY_VAR)!!") then do;";
+17178     +                       put string;
+17179     +
+17180     +                     end;
+17181     +                     else if type='C' then do;
+17182     +                        string = "_UFormat = "||strip(DISPLAY_VAR)||";";
+17183     +                        put string;
+17184     +                        string = '%dmnormip(_UFormat);';
+17185     +                        put string;
+17186     +
+17187     +                        string ="if MISSING(_UFORMAT) then do;";
+17188     +                        put string;
+17189     +                        string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+17190     +                        put string;
+17191     +                        put "end;";
+17192     +
+17193     +                        string="else if NOT MISSING(_UFORMAT) then do;";
+17194     +                        put string;
+17195     +                        string = '%dmnormip(_UFormat);';
+17196     +                        put string;
+17197     +                    end;
+17198     +                end;
+17199     +              end;
+17200     +              if format ne '' OR type='C' then do;
+17201     +                string = "if (_UFORMAT eq '"!!strip(_split_value_)!!"'";
+17202     +              end;
+17203     +              else do;
+17204     +                string = "if ("!!strip(DISPLAY_VAR)!!" eq "!!strip(_split_value_);
+17205     +              end;
+17206     +           end;
+17207     +           else do;
+17208     +              if flag ne 1 then do;
+17209     +                if format ne '' OR type='C' then do;
+17210     +                  tempstring = strip(string)!!" OR _UFORMAT eq '"!!strip(_split_value_)!!"'";
+17211     +                end;
+17212     +                else do;
+17213     +                  tempstring = strip(string)!!" OR "!!strip(DISPLAY_VAR)!!" eq "!!strip(_split_value_);
+17214     +                end;
+17215     +                length = klength(tempstring);
+17216     +
+17217     +                if length < 195 then do;
+17218     +                   string = tempstring;
+17219     +                end;
+17220     +                else do;
+17221     +
+17222     +                   string = strip(string);
+17223     +                   put string;
+17224     +                   string = ") then do;";
+17225     +                   put string;
+17226     +
+17227     +                   string = strip(_grp_variable_)!!" = "!!strip(_GROUP_)!!";";
+17228     +                   put string;
+17229     +                   put "end;";
+17230     +
+17231     +                 /*  string = strip(string)||",'...';"; */
+17232     +
+17233     +                   put 'else';
+17234     +                   if format ne '' OR type='C' then do;
+17235     +                     string = "if (_UFORMAT eq '"!!strip(_split_value_)!!"'";
+17236     +                   end;
+17237     +                   else do;
+17238     +                     string = "if ("!!strip(DISPLAY_VAR)!!" eq "!!strip(_split_value_);
+17239     +                   end;
+17240     +
+17241     +
+17242     +                end;
+17243     +              end;
+17244     +           end;
+17245     +
+17246     +           if last._group_ then do;
+17247     +              string = strip(string);
+17248     +              put string;
+17249     +              string = ") then do;";
+17250     +              put string;
+17251     +
+17252     +              string = strip(_grp_variable_)!!" = "!!strip(_GROUP_)!!";";
+17253     +              put string;
+17254     +              put "end;";
+17255     +           end;
+17256     +
+17257     +           if last._variable_ then do;
+17258     +             put "else do;";
+17259     +
+17260     +             string = strip(_grp_variable_)!!" = "!!strip(MISSGRP)!!";";
+17261     +             put string;
+17262     +
+17263     +             put "end;";
+17264     +             put "end;";
+17265     +           end;
+17266     +         *end;
+17267     +       end;
+17268     +    run;
+17269     +
+17270     +    /* generate PublishCode the same as flowscorecode */
+17271     +    filename Y "&publishCode";
+17272     +
+17273     +    /* if publishCode already exists, wipe it out first */
+17274     +    %if %sysfunc(fexist(Y)) eq 1 %then %do;
+17275     +      %let rc = %sysfunc(fdelete(Y));
+17276     +    %end;
+17277     +
+17278     +    %appendfiles(Y, X);
+17279     +
+17280     +    %if %EM_BINARY_TARGET= %then %do;
+17281     +      %if %symexist(EM_NUM_INTERVAL_TARGET)=0 %then %do;
+17282     +         %em_varMacro(name=EM_INTERVAL_TARGET, metadata=&EM_DATA_variableSet, where=%nrbquote(ROLE="TARGET" and LEVEL="INTERVAL" and (USE="Y" or USE="D")), nummacro=em_num_interval_Target);
+17283     +      %end;
+17284     +      %let ibn_inttarget=%EM_INTERVAL_TARGET;
+17285     +      %let ibn_inttarget_orig = &ibn_inttarget;
+17286     +
+17287     +      %if %symexist(IGNBinTarget)=0 %then %do;
+17288     +         %global ignbintarget ignfreqvar;
+17289     +         filename temp catalog 'sashelp.emutil.em_getvarname.source';
+17290     +         %include temp;
+17291     +         filename temp;
+17292     +         %getVarName(&EM_IMPORT_DATA, BIN_%substr(&ibn_inttarget,1,%sysfunc(min(%length(&ibn_inttarget),28))), IGNBinTarget);
+17293     +
+17294     +         %if &EM_PROPERTY_INTTARGETMETHOD = DUPFREQ %then %do;
+17295     +            %getVarName(&EM_IMPORT_DATA, _FREQ_, ignfreqvar);
+17296     +         %end;
+17297     +      %end;
+17298     +      %if &EM_PROPERTY_INTTARGETMETHOD = CUTMEAN %then %do;
+17299     +         proc sql noprint;
+17300     +            %if %EM_FREQ ne %then %do;
+17301     +               select sum(&ibn_inttarget * %EM_FREQ) / sum(%EM_FREQ)
+17302     +            %end;
+17303     +            %else %do;
+17304     +               select mean(&ibn_inttarget)
+17305     +            %end;
+17306     +            into :ignbincut trimmed from &EM_IMPORT_DATA;
+17307     +         quit;
+17308     +      %end;
+17309     +
+17310     +      %let dsid=%sysfunc(open(&EM_IMPORT_DATA,i));
+17311     +      %if &dsid %then %do;
+17312     +         %let tarlabel=%trim(%sysfunc(varlabel(&dsid,%sysfunc(varnum(&dsid,&ibn_inttarget)))));
+17313     +         %let rc=%sysfunc(close(&dsid));
+17314     +      %end;
+17315     +      %if %length(&tarlabel)=0 %then %let tarlabel = &ibn_inttarget;
+17316     +
+17317     +      data _null_;
+17318     +         file x mod;
+17319     +         put ' ';
+17320     +
+17321     +         %if &EM_PROPERTY_INTTARGETMETHOD = CUTMEAN %then %do;
+17322     +             put "&EM_CODEBAR;";
+17323     +             %let note = Mean Cutoff Binary Transformation for Target;
+17324     +             put "* &note;";
+17325     +             put "&EM_CODEBAR;";
+17326     +         %end;
+17327     +         %else %if &EM_PROPERTY_INTTARGETMETHOD = CUTUSER %then %do;
+17328     +             put "&EM_CODEBAR;";
+17329     +             %let note = User-Specified Cutoff Binary Transformation for Target;
+17330     +             put "* &note;";
+17331     +             put "&EM_CODEBAR;";
+17332     +             %let ignbincut = &EM_PROPERTY_USERCUTVALUE;
+17333     +         %end;
+17334     +         put "if &ibn_inttarget = . then &IGNBinTarget = .;";
+17335     +         put "else do;";
+17336     +         put "   if &ibn_inttarget > &ignbincut then &IGNBinTarget=1;";
+17337     +         put "   else &IGNBinTarget=0;";
+17338     +         put "end;";
+17339     +
+17340     +         put "label &IGNBinTarget = 'Binary: %nrbquote(%substr(&tarlabel,1,192))';";
+17341     +      run;
+17342     +
+17343     +      filename deltaref "&EM_FILE_CDELTA_TRAIN";
+17344     +
+17345     +      %if &EM_PROPERTY_RejectIntTarget = Y %then %do;
+17346     +
+17347     +         data _null_;
+17348     +            file deltaref;
+17349     +            put "if name='&ibn_inttarget_orig' then role='REJECTED';";
+17350     +            put "if name='&IGNBinTarget' then do;";
+17351     +            put "   role='TARGET';";
+17352     +            put "   level='BINARY';";
+17353     +            put "end;";
+17354     +         run;
+17355     +
+17356     +      %end;
+17357     +      %else %do;
+17358     +
+17359     +         data _null_;
+17360     +            file deltaref;
+17361     +            put "if name='&ibn_inttarget_orig' then role='TARGET';";
+17362     +            put "if name='&IGNBinTarget' then do;";
+17363     +            put "   role='REJECTED';";
+17364     +            put "   level='BINARY';";
+17365     +            put "end;";
+17366     +         run;
+17367     +      %end;
+17368     +
+17369     +      filename deltaref;
+17370     +
+17371     +   %end;
+17372     +
+17373     +    filename X;
+17374     +    filename Y;
+17375     +
+17376     +    %buildOptScoreCode;
+17377     +
+17378     +    proc datasets library=work nolist;
+17379     +      delete class class_nosv temp temp_missing tempmappings tempcmeta;
+17380     +    run;
+17381     +    quit;
+17382     +
+17383     +%mend buildScoreCode;
+17384     +
+17385     +%macro buildMetaCode(DeltaCodeFile=);
+17386     +
+17387     +   /* set variable roles based on New Role column in the Results table */
+17388     +   data _null_;
+17389     +      file &DeltaCodeFile %if %length(%EM_BINARY_TARGET)=0 %then mod;;
+17390     +      %let dsid = %sysfunc(open(&EM_USER_RESULTSTABLE));
+17391     +      %if &dsid %then %do;
+17392     +        %let obs = %sysfunc(fetch(&dsid));
+17393     +        %let vnum = %sysfunc(VARNUM(&dsid, DISPLAY_VAR));
+17394     +        %let rnum = %sysfunc(VARNUM(&dsid, _new_role_));
+17395     +        %let ornum = %sysfunc(VARNUM(&dsid, _role_));
+17396     +
+17397     +        %do %while(&obs=0);
+17398     +          %let inputname = %sysfunc(getvarc(&dsid, &vnum));
+17399     +          %let role      = %upcase(%sysfunc(getvarc(&dsid, &rnum)));
+17400     +          %let oldrole   = %upcase(%sysfunc(getvarc(&dsid, &ornum)));
+17401     +
+17402     +          /* retrieve grp and woe names from varmappings dataset */
+17403     +          %let choice = _VARIABLE_ = "&inputname";
+17404     +          %let cdsid = %sysfunc(open(&EM_USER_VARMAPPINGS(where=(&choice))));
+17405     +          %let cobs = %sysfunc(fetchobs(&cdsid, 1));
+17406     +          %let grpnum = %sysfunc(VARNUM(&cdsid, _GRP_VARIABLE_));
+17407     +          %let grpname = %sysfunc(getvarc(&cdsid, &grpnum));
+17408     +          %if &cdsid %then %let cdsid = %sysfunc(close(&cdsid));
+17409     +
+17410     +          put "if name = '&inputname' then role='REJECTED';";
+17411     +          %if "&role" ne "DEFAULT" %then %do;
+17412     +            put "if name = '&grpname' then role='&role';";
+17413     +          %end;
+17414     +          %else %do;
+17415     +            put "if name = '&grpname' then role='&oldrole';";
+17416     +          %end;
+17417     +          put "if name = '&grpname' then level='&EM_PROPERTY_GRPMSMNT';";
+17418     +
+17419     +          %let obs = %sysfunc(fetch(&dsid));
+17420     +        %end;
+17421     +      %end;
+17422     +      %if &dsid %then %let dsid = %sysfunc(close(&dsid));
+17423     +   run;
+17424     +
+17425     +   /* drop all vars in the splitvals dataset that aren't present in the varmappings dataset */
+17426     +   data _null_;
+17427     +      file &DeltaCodeFile MOD;
+17428     +
+17429     +      %let sdsid = %sysfunc(open(&EM_USER_SPLITVALS));
+17430     +      %if &sdsid %then %do;
+17431     +        %let sobs = %sysfunc(fetch(&sdsid));
+17432     +        %do %while(&sobs=0);
+17433     +          %let varnum = %sysfunc(VARNUM(&sdsid, _VARIABLE_));
+17434     +          %let checkname = %sysfunc(getvarc(&sdsid, &varnum));
+17435     +          %let dispvarnum = %sysfunc(VARNUM(&sdsid, DISPLAY_VAR));
+17436     +          %let displayvar = %sysfunc(getvarc(&sdsid, &dispvarnum));
+17437     +
+17438     +          %let checkgrp = GRP_&checkname;
+17439     +          %let lenname = %length(&checkgrp);
+17440     +          %if %eval(&lenname-32) > 0 %then %do;
+17441     +            %let checkgrp = %substr(&checkgrp, 1, 32);
+17442     +          %end;
+17443     +
+17444     +          %let choice = _VARIABLE_ ="&checkname";
+17445     +          %let vdsid = %sysfunc(open(&EM_USER_VARMAPPINGS(where=(&choice))));
+17446     +
+17447     +          /* if var not found in varmappings, delete variables; */
+17448     +          /* this could happen when freeze=Y and vars in the frozen dataset aren't in the incoming training data */
+17449     +          %if &vdsid eq 0 %then %do;
+17450     +            put 'if name="&displayvar" then delete;';
+17451     +            %let dispgrp = GRP_&displayvar;
+17452     +            put 'if name="&dispgrp" then delete;';
+17453     +          %end;
+17454     +
+17455     +          %if &vdsid > 0 %then %let vdsid = %sysfunc(close(&vdsid));
+17456     +          %let sobs = %sysfunc(fetch(&sdsid));
+17457     +        %end;
+17458     +      %end;
+17459     +      %if &sdsid > 0 %then %let sdsid= %sysfunc(close(&sdsid));
+17460     +   run;
+17461     +
+17462     +%mend buildMetaCode;
+17463     +
+17464     +%macro EM_GENERATE_RESULTSTABLE(coarse, resultstable, varmappings);
+17465     +
+17466     +   proc sort data=&coarse out=sortedcoarse nodupkey;
+17467     +     by display_var;
+17468     +   run;
+17469     +   proc sort data=&varmappings nodupkey;
+17470     +     by _variable_;
+17471     +   run;
+17472     +   %if %sysfunc(exist(&resultstable, data)) %then %do;
+17473     +     proc sort data=&resultstable; by display_var; run;
+17474     +   %end;
+17475     +
+17476     +   data &resultstable (Keep = display_var _gini_  _role_ _new_role_ procLevel);
+17477     +     merge sortedcoarse(in=_a) &varmappings(rename=(_Variable_ = DISPLAY_VAR))
+17478     +     %if %sysfunc(exist(&resultstable, data)) %then %do;
+17479     +        &resultstable (keep = display_var _new_role_ )
+17480     +     %end;
+17481     +     ;
+17482     +     by display_var;
+17483     +     length _role_ _new_role_ $10;
+17484     +     label display_var = "%sysfunc(sasmsg(sashelp.dmine, rpt_variable_vlabel , NOQUOTE))"
+17485     +           _gini_     = "%sysfunc(sasmsg(sashelp.dmine, rpt_ginistatistic_vlabel , NOQUOTE))"
+17486     +           _role_     = "%sysfunc(sasmsg(sashelp.dmine, rpt_calcrole_vlabel, NOQUOTE))"
+17487     +           _new_role_ = "%sysfunc(sasmsg(sashelp.dmine, meta_NEWROLE_vlabel, NOQUOTE))"
+17488     +           LEVEL      = "%sysfunc(sasmsg(sashelp.dmine, rpt_level_vlabel , NOQUOTE))"
+17489     +           ;
+17490     +
+17491     +           %if &EM_PROPERTY_VARSELMETHOD eq GINI %then %do;
+17492     +             if _gini_ < &EM_PROPERTY_GINICUTOFF then
+17493     +                _role_ = "Rejected";
+17494     +             else _role_ = "Input";
+17495     +           %end;
+17496     +           %else %do;
+17497     +             _role_ = "Input";
+17498     +           %end;
+17499     +           if _new_role_ eq "" then _new_role_="Default";
+17500     +      if ^_a then do;
+17501     +        _gini_ = 0;
+17502     +        _role_ = 'Rejected';
+17503     +        if _new_role_ eq "" then _new_role_="Default";
+17504     +      end;
+17505     +   run;
+17506     +   proc sort data=&EM_DATA_VARIABLESET out=outlabel(keep=NAME LABEL LEVEL rename=(NAME=display_var LABEL=_label_));
+17507     +     by NAME;
+17508     +   run;
+17509     +   data outlabel;
+17510     +     set outlabel;
+17511     +     if _label_ = '' then _label_ = _variable_;
+17512     +   run;
+17513     +   data &resultstable;
+17514     +     merge &resultstable(in=_a_) outlabel;
+17515     +     by display_Var;
+17516     +     if _a_ then output;
+17517     +   run;
+17518     +   proc datasets library=work nolist;
+17519     +     delete sortedcoarse outlabel;
+17520     +   run;
+17521     +   quit;
+17522     +   proc sort data=&resultstable nodupkey;
+17523     +      by DESCENDING
+17524     +        _gini_ display_Var;
+17525     +   run;
+17526     +   data &resultstable;
+17527     +     set &resultstable;
+17528     +
+17529     +     label giniOrder = "%sysfunc(sasmsg(sashelp.dmine, rpt_giniorder_vlabel , NOQUOTE))"
+17530     +           LEVEL      = "%sysfunc(sasmsg(sashelp.dmine, rpt_level_vlabel , NOQUOTE))";
+17531     +     giniOrder = _N_;
+17532     +     _gini_ = round(_GINI_, .001);
+17533     +     drop _variable_;
+17534     +   run;
+17535     +
+17536     +   proc print data=&resultstable label;
+17537     +   run;
+17538     +
+17539     +   /* merge role, infovalOrder or giniOrder back into Coarse table as well */
+17540     +   data &coarse;
+17541     +     set &coarse;
+17542     +     length role $10;
+17543     +     %let dsid = %sysfunc(open(&resultstable));
+17544     +     %if &dsid %then %do;
+17545     +       %let disnum = %sysfunc(VARNUM(&dsid, DISPLAY_VAR));
+17546     +       %let rolenum = %sysfunc(VARNUM(&dsid, _ROLE_));
+17547     +       %let orderNum = %sysfunc(VARNUM(&dsid, giniOrder));
+17548     +
+17549     +       %let obs = %sysfunc(fetch(&dsid));
+17550     +       %do %while(&obs=0);
+17551     +          %let displayvar = %sysfunc(getvarc(&dsid, &disnum));
+17552     +          %let role       = %sysfunc(getvarc(&dsid, &rolenum));
+17553     +          %let order = %sysfunc(getvarn(&dsid, &ordernum));
+17554     +
+17555     +                                                                                               if DISPLAY_VAR = "&displayVar" then do;
+17556     +            label giniOrder = "%sysfunc(sasmsg(sashelp.dmine, rpt_giniorder_vlabel , NOQUOTE))";
+17557     +            giniOrder = &order;
+17558     +            role = "&role";
+17559     +          end;
+17560     +
+17561     +          %let obs = %sysfunc(fetch(&dsid));
+17562     +       %end;
+17563     +     %end;
+17564     +     %if &dsid %then %let dsid = %sysfunc(close(&dsid));
+17565     +   run;
+17566     +
+17567     +
+17568     +%mend EM_GENERATE_RESULTSTABLE;
+17569     +
+17570     +%macro EM_GENERATE_EXPORTGROUP(exportGrouping, createMethod);
+17571     +
+17572     +    /* instantiate the zchar macro to be used in adding bin definition */
+17573     +    filename _temp catalog 'sashelp.emmacs.zchar.source';
+17574     +    %inc _temp;
+17575     +    filename _temp;
+17576     +
+17577     +    proc sort data=&EM_USER_FINEDETAILDATA out=sortedfine;
+17578     +      by _variable_ binFlag _group_ LB;
+17579     +    run;
+17580     +
+17581     +    data tempExport;
+17582     +      set sortedFine;
+17583     +      by _variable_ binFlag _group_;
+17584     +      length _split_value_ $200;
+17585     +
+17586     +      /* for all binned variables, need to modify the split value to original cutoff as well as change level to interval */
+17587     +      if binFlag = 0 then do;
+17588     +        index = kindex(_variable_, "BIN_");
+17589     +        if index gt 0 then do;
+17590     +          _LEVEL_ = "INTERVAL";
+17591     +        end;
+17592     +        _Split_value_ = _split_value_;
+17593     +        output;
+17594     +      end;
+17595     +      else do;
+17596     +         * if last._group_ then do;
+17597     +          index = kindex(_variable_, "BIN_");
+17598     +          if index gt 0 then do;
+17599     +            _LEVEL_ = "INTERVAL";
+17600     +          end;
+17601     +          _Split_value_ = %zchar(UB);
+17602     +          output;
+17603     +         * end;
+17604     +      end;
+17605     +
+17606     +      rename display_Var = _variable_;
+17607     +      keep display_var _level_ _group_ _split_value_ binFlag;
+17608     +    run;
+17609     +
+17610     +    %if &CREATEMETHOD eq OVERWRITE %then %do;
+17611     +       data &EXPORTGROUPING;
+17612     +         set tempexport;
+17613     +       run;
+17614     +    %end;
+17615     +    %else %do;
+17616     +       /* determine if EXPORTGROUPING already exists */
+17617     +       %if %sysfunc(exist(&EXPORTGROUPING, DATA)) %then %do;
+17618     +         data &EXPORTGROUPING;
+17619     +            set &EXPORTGROUPING tempexport;
+17620     +         run;
+17621     +       %end;
+17622     +       %else %do;
+17623     +         data &EXPORTGROUPING;
+17624     +            set tempexport;
+17625     +         run;
+17626     +       %end;
+17627     +    %end;
+17628     +
+17629     +    proc datasets lib=work nolist;
+17630     +      delete sortedFine tempexport;
+17631     +    run;
+17632     +    quit;
+17633     +
+17634     +%mend EM_GENERATE_EXPORTGROUP;
+17635     +
+17636     +
+17637     +
+NOTE: %INCLUDE (level 1) ending.
+MPRINT(MAIN):   filename temp;
+NOTE: Fileref TEMP has been deassigned.
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(SETPROPERTIES):  ;
+MPRINT(MAIN):  ;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * End UPDATE: BINNING;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+17638      *------------------------------------------------------------*;
+17639      * End UPDATE: BINNING;
+17640      *------------------------------------------------------------*;
+17641      
+
+17642      %em_delMacro;
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_DIAGRAM):  ;
+
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\BINNING\PROPERTIES.xml' encoding="UTF-8" NOBOM;
+17644      %let _HPDMGRIDHOST=;
+17645      %let _HPDMGRIDINSTALLLOC=;
+17646      %let _HPDMGRIDDATASERVER=;
+17647      %hpdm_gridSetOPtions;
+MPRINT(EM_DIAGRAM):   
+MPRINT(HPDM_GRIDSETOPTIONS):   data _null_;
+MPRINT(HPDM_GRIDSETOPTIONS):   length optionString string $2000;
+MPRINT(HPDM_GRIDSETOPTIONS):   optionString = reverse(getoption('SET'));
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDHOST'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   host = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDHOST', strip(host));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDINSTALLLOC'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   install = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDINSTALLLOC', strip(install));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   index = index(optionString, reverse('GRIDDATASERVER'));
+MPRINT(HPDM_GRIDSETOPTIONS):   if index then do;
+MPRINT(HPDM_GRIDSETOPTIONS):   string = reverse(substr(optionString, 1, index-4));
+MPRINT(HPDM_GRIDSETOPTIONS):   server = '"'!!strip(tranwrd(scan(string, 1, ']'), '"', ''))!!'"';
+MPRINT(HPDM_GRIDSETOPTIONS):   call symput('_HPDMGRIDDATASERVER', strip(server));
+MPRINT(HPDM_GRIDSETOPTIONS):   end;
+MPRINT(HPDM_GRIDSETOPTIONS):   run;
+
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      cpu time            0.00 seconds
+      
+
+MPRINT(EM_DIAGRAM):  ;
+
+*------------------------------------------------------------* 
+* 
+* BINNING : End update 
+* datetime : 12NOV2015:14:10:14 
+* 
+*------------------------------------------------------------* 
+17648      %em_getactionstatus(emlib =EMWS1, nodeid=BINNING);
+MPRINT(EM_DIAGRAM):   
+MPRINT(EM_GETACTIONSTATUS):   proc display c=sashelp.emutil.getactionstatus.scl;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+17649      %let em_filemodtime=;
+17650      data _null_;
+MPRINT(EM_GETACTIONSTATUS):   data _null_;
+17651      format modate best.;
+MPRINT(EM_GETACTIONSTATUS):   format modate best.;
+17652      set sashelp.Vextfl;
+MPRINT(EM_GETACTIONSTATUS):   set sashelp.Vextfl;
+17653      where fileref eq "#LN00241";
+MPRINT(EM_GETACTIONSTATUS):   where fileref eq "#LN00241";
+17654      call symput('EM_FILEMODTIME', put(modate, best.));
+MPRINT(EM_GETACTIONSTATUS):   call symput('EM_FILEMODTIME', put(modate, best.));
+17655      run;
+MPRINT(EM_GETACTIONSTATUS):   run;
+
+NOTE: There were 1 observations read from the data set SASHELP.VEXTFL.
+      WHERE fileref='#LN00241';
+NOTE: DATA statement used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+17656      %symdel em_filemodtime;
+WARNING: Attempt to delete macro variable EM_FILEMODTIME failed. Variable not found.
+17657      %let em_Train = N;
+17658      %let em_Score = N;
+17659      %let em_Report = N;
+17660      %let em_Run = N;
+NOTE: PROCEDURE DISPLAY used (Total process time):
+      real time           0.07 seconds
+      cpu time            0.07 seconds
+      
+
+MPRINT(EM_GETACTIONSTATUS):     
+MPRINT(EM_DIAGRAM):  ;
+
+Node "BINNING" has already run. 
+Node "BINNING" succeeded. 
+17661      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+17662      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+17663      put '<Node Id="BINNING" Event="Complete" Pid="952" Gridid=""/>';
+MPRINT(EM_DIAGRAM):   put '<Node Id="BINNING" Event="Complete" Pid="952" Gridid=""/>';
+17664      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 57.
+      The maximum record length was 57.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+Traverser: Run Completed 
+17665      data _null_;
+MPRINT(EM_DIAGRAM):    data _null_;
+17666      file emwipmsg;
+MPRINT(EM_DIAGRAM):   file emwipmsg;
+17667      put '<Diagram Event="Complete"/>';
+MPRINT(EM_DIAGRAM):   put '<Diagram Event="Complete"/>';
+17668      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The file EMWIPMSG is:
+      Local Host Name=COB-IT-M10,
+      Local Host IP addr=fe80::7cbc:2015:11d9:1f2e%11,
+      Peer Hostname Name=COB-IT-M10.ad.louisville.edu,
+      Peer IP addr=127.0.0.1,Peer Name=N/A,
+      Peer Portno=63673,Lrecl=32767,Recfm=Variable
+
+NOTE: 1 record was written to the file EMWIPMSG.
+      The minimum record length was 27.
+      The maximum record length was 27.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.00 seconds
+      
+
+17669      filename emwipmsg;
+MPRINT(EM_DIAGRAM):    filename emwipmsg;
+NOTE: Fileref EMWIPMSG has been deassigned.
+17670      proc printto;
+MPRINT(EM_DIAGRAM):    proc printto;
+17671      run;
+MPRINT(EM_DIAGRAM):   run;
+

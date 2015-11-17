@@ -1,0 +1,163 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Variable Summary
+
+          Measurement    Frequency
+ Role        Level         Count
+
+INPUT      BINARY             1   
+INPUT      INTERVAL          10   
+INPUT      NOMINAL            5   
+TARGET     INTERVAL           1   
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The DMINE Procedure
+
+               R-Squares for Target Variable: SalePrice
+ 
+Effect                               DF        R-Square
+
+AOV16: TotalArea                     15        0.173057                
+AOV16: UpperArea                     14        0.155101                
+AOV16: FirstFloor                    14        0.113818                
+Class: BasementType*GarageType       10        0.106131                
+Group: BasementType*GarageType        6        0.105788                
+Var:   TotalArea                      1        0.104729                
+AOV16: Age                           14        0.096452                
+Class: BasementType*WallType          7        0.089160                
+Group: BasementType*WallType          5        0.087963                
+AOV16: FirePlace                      2        0.087490                
+Class: BasementType*CentralAir        5        0.082971                
+AOV16: Basement                      11        0.082497                
+Group: BasementType*CentralAir        3        0.082424                
+AOV16: GarageSize                     2        0.080014                
+Var:   GarageSize                     1        0.079297                
+Var:   UpperArea                      1        0.073415                
+Class: CentralAir*GarageType          6        0.072455                
+Group: CentralAir*GarageType          3        0.071261                
+Class: GarageType*Neighborhood        7        0.062177                
+Group: GarageType*Neighborhood        4        0.062073                
+Class: GarageType*WallType            9        0.059768                
+Group: GarageType*WallType            5        0.059249                
+Class: CentralAir*WallType            5        0.055696                
+Group: CentralAir*WallType            4        0.055681                
+Class: BasementType*Neighborhood      5        0.050952                
+Group: BasementType*Neighborhood      3        0.050667                
+AOV16: ConstructionType               2        0.049142                
+Var:   ConstructionType               1        0.044264                
+Class: BasementType*LotSize           2        0.037935                
+Class: BasementType                   2        0.037935                
+Class: GarageType                     3        0.037323                
+Class: GarageType*LotSize             3        0.037323                
+Group: GarageType*LotSize             2        0.037234                
+Group: GarageType                     2        0.037234                
+Class: CentralAir*Neighborhood        3        0.036094                
+AOV16: SecondFloor                    4        0.034261                
+Var:   FirePlace                      1        0.033060                
+Class: Neighborhood*WallType          4        0.032072                
+Group: Neighborhood*WallType          2        0.031561                
+Class: CentralAir                     1        0.030063                
+Class: CentralAir*LotSize             1        0.030063                
+AOV16: Baths                          2        0.020597                
+Var:   FirstFloor                     1        0.019185                
+Var:   Age                            1        0.017675                
+Var:   Basement                       1        0.010900                
+Var:   Baths                          1        0.010451                
+Class: WallType                       2        0.009184                
+Class: LotSize*WallType               2        0.009184                
+Group: WallType                       1        0.009184                
+Group: LotSize*WallType               1        0.009184                
+Var:   SecondFloor                    1        0.008062                
+Class: LotSize*Neighborhood           1        0.002014    R2 < MINR2  
+Class: Neighborhood                   1        0.002014    R2 < MINR2  
+Class: LotSize                        0               0    R2 < MINR2  
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The DMINE Procedure
+
+                                       Effects Chosen for Target: SalePrice
+ 
+                                                                                            Sum of      Error Mean
+Effect                               DF        R-Square         F Value    p-Value         Squares          Square
+
+Var:   TotalArea                      1        0.104729       22.343321     <.0001      4038531226       180748923
+Var:   GarageSize                     1        0.047469       10.638233     0.0013      1830479624       172066130
+Var:   Age                            1        0.039296        9.186014     0.0028      1515315609       164958990
+Class: BasementType                   2        0.016498        1.947683     0.1455       636195742       163321141
+Var:   ConstructionType               1        0.012423        2.963875     0.0868       479032624       161623768
+Class: CentralAir                     1        0.008182        1.962245     0.1629       315513227       160791933
+Var:   FirePlace                      1        0.004846        1.163312     0.2822       186886139       160650116
+Var:   Baths                          1        0.001169        0.279530     0.5976        45083103       161281630
+Var:   Basement                       1        0.000804        0.191361     0.6623        30999959       161997463
+Var:   SecondFloor                    1        0.000927        0.219624     0.6399        35731682       162695065
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The DMINE Procedure
+
+    The Final ANOVA Table for Target: SalePrice
+ 
+                                              Sum of
+Effect            DF        R-Square         Squares
+
+Model             11        0.236343      9113768935
+Error            181               .     29447806675
+Total            192               .     38561575609
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The DMINE Procedure
+
+                             Effects Not Chosen for Target: SalePrice
+ 
+                                                                                            Sum of
+Effect                               DF        R-Square         F Value    p-Value         Squares
+
+Var:   UpperArea                      1     0.000003670        0.000865     0.9766          141506
+Group: GarageType                     2        0.000283        0.033199     0.9674        10919236
+Var:   FirstFloor                     1     0.000003670        0.000865     0.9766          141506
+Group: WallType                       1     0.000070494        0.016618     0.8976         2718361
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------
+Summary of Variable Selection from Training
+-------------------------------------------------------------------
+
+
+Target Name : SalePrice
+Target Level : INTERVAL
+Variable Selection Model : R-Square
+
+Total number of inputs : 16
+Total number of used inputs : 16
+Total number of unused inputs : 0
+Total number of rejected inputs : 6
+
+Maximum missing percentage : 50
+NOTE: There is no rejected variable by maximum missing percentage
+
+Maximum class level : 100
+NOTE:There is no rejected variable by maximum class level

@@ -1,0 +1,201 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+Filter Limits for Interval Variables
+(maximum 500 observations printed)
+
+                                                               Keep
+                                                    Filter    Missing
+Variable            Role      Minimum    Maximum    Method    Values     Label
+
+Age                 INPUT      22.887      71.97    STDDEV       Y       Age             
+Basement            INPUT    -747.892    1043.17    STDDEV       Y       Basement        
+Baths               INPUT      -1.115       4.30    STDDEV       Y       Baths           
+ConstructionType    INPUT      -0.535       3.23    STDDEV       Y       ConstructionType
+FirePlace           INPUT      -0.424       2.15    STDDEV       Y       FirePlace       
+FirstFloor          INPUT     460.815    1635.66    STDDEV       Y       FirstFloor      
+GarageSize          INPUT      -0.616       2.73    STDDEV       Y       GarageSize      
+SecondFloor         INPUT    -625.786     760.22    STDDEV       Y       SecondFloor     
+TotalArea           INPUT     419.221    2421.27    STDDEV       Y       TotalArea       
+UpperArea           INPUT    -435.187    1044.77    STDDEV       Y       UpperArea       
+ 
+                                                                                                                                                                                                                                                                
+ 
+Excluded Class Values
+(maximum 500 observations printed)
+
+                                     Train     Train                   Filter
+ Variable     Role     Level         Count    Percent      Label       Method
+
+GarageType    INPUT      4               1    0.45872    GarageType    MINPCT
+GarageType    INPUT      5               1    0.45872    GarageType    MINPCT
+LotSize       INPUT      2               1    0.45872    LotSize       MINPCT
+LotSize       INPUT      3               1    0.45872    LotSize       MINPCT
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Number Of Observations
+
+Data
+Role     Filtered    Excluded    DATA
+
+TRAIN       193         25        218
+ 
+                                                                                                                                                                                                                                                                
+ 
+Statistics for Original and FILTERED Data
+(maximum 500 observations printed)
+
+Data Role=TRAIN Variable=Age
+
+Statistics            Original    Filtered
+
+Non Missing            218.000     193.000
+Missing                  0.000       0.000
+Minimum                 -3.000      26.000
+Maximum                 67.000      67.000
+Mean                    47.427      47.440
+Standard Deviation       8.180       7.191
+Skewness                -0.822       0.409
+Kurtosis                 5.907       0.260
+
+
+Data Role=TRAIN Variable=Basement
+
+Statistics            Original    Filtered
+
+Non Missing             218.00     193.000
+Missing                   0.00       0.000
+Minimum                   0.00       0.000
+Maximum                1394.00     971.000
+Mean                    147.64     110.979
+Standard Deviation      298.51     233.411
+Skewness                  2.09       1.951
+Kurtosis                  3.77       2.662
+
+
+Data Role=TRAIN Variable=Baths
+
+Statistics            Original    Filtered
+
+Non Missing            218.000     193.000
+Missing                  0.000       0.000
+Minimum                  1.000       1.000
+Maximum                  6.000       3.000
+Mean                     1.592       1.492
+Standard Deviation       0.902       0.785
+Skewness                 1.660       1.169
+Kurtosis                 3.666      -0.350
+
+
+Data Role=TRAIN Variable=ConstructionType
+
+Statistics            Original    Filtered
+
+Non Missing            218.000     193.000
+Missing                  0.000       0.000
+Minimum                  1.000       1.000
+Maximum                  3.000       3.000
+Mean                     1.349       1.275
+Standard Deviation       0.628       0.523
+Skewness                 1.605       1.762
+Kurtosis                 1.334       2.258
+
+
+Data Role=TRAIN Variable=FirePlace
+
+Statistics            Original    Filtered
+
+Non Missing            218.000     193.000
+Missing                  0.000       0.000
+Minimum                  0.000       0.000
+Maximum                  3.000       2.000
+Mean                     0.862       0.845
+Standard Deviation       0.429       0.391
+Skewness                -0.412      -1.374
+Kurtosis                 3.631       1.542
+
+
+Data Role=TRAIN Variable=FirstFloor
+
+Statistics            Original    Filtered
+
+Non Missing             218.00      193.00
+Missing                   0.00        0.00
+Minimum                 588.00      588.00
+Maximum                2130.00     1562.00
+Mean                   1048.24     1033.08
+Standard Deviation      195.81      169.78
+Skewness                  1.33        0.12
+Kurtosis                  5.83        0.37
+
+
+Data Role=TRAIN Variable=GarageSize
+
+Statistics            Original    Filtered
+
+Non Missing            218.000     193.000
+Missing                  0.000       0.000
+Minimum                  0.000       0.000
+Maximum                  2.000       2.000
+Mean                     1.055       1.026
+Standard Deviation       0.557       0.535
+Skewness                 0.023       0.025
+Kurtosis                 0.234       0.552
+
+
+Data Role=TRAIN Variable=SalePrice
+
+Statistics              Original      Filtered
+
+Non Missing               218.00        193.00
+Missing                     0.00          0.00
+Minimum                  5014.00      44185.00
+Maximum                135363.00     121984.00
+Mean                    75984.28      75017.56
+Standard Deviation      16816.32      14171.86
+Skewness                   -0.01          0.29
+Kurtosis                    1.91         -0.04
+
+
+Data Role=TRAIN Variable=SecondFloor
+
+Statistics            Original    Filtered
+
+Non Missing             218.00     193.000
+Missing                   0.00       0.000
+Minimum                   0.00       0.000
+Maximum                1316.00     712.000
+Mean                     67.22      22.948
+Standard Deviation      231.00     119.159
+Skewness                  3.38       5.073
+Kurtosis                 10.41      24.239
+
+
+Data Role=TRAIN Variable=TotalArea
+
+Statistics            Original    Filtered
+
+Non Missing             218.00      193.00
+Missing                   0.00        0.00
+Minimum                 830.00      830.00
+Maximum                2605.00     2319.00
+Mean                   1420.24     1380.65
+Standard Deviation      333.67      309.38
+Skewness                  0.46        0.36
+Kurtosis                 -0.05       -0.38
+
+
+Data Role=TRAIN Variable=UpperArea
+
+Statistics            Original    Filtered
+
+Non Missing            218.000     193.000
+Missing                  0.000       0.000
+Minimum                  0.000       0.000
+Maximum                913.000     913.000
+Mean                   304.789     324.617
+Standard Deviation     246.659     243.236
+Skewness                -0.016      -0.130
+Kurtosis                -1.178      -1.066

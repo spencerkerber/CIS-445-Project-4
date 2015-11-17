@@ -1,0 +1,65 @@
+*------------------------------------------------------------*
+User:                sakerb01
+Date:                November 12, 2015
+Time:                13:26:43
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+          Measurement    Frequency
+Role         Level         Count
+ 
+ASSESS     NOMINAL           1
+ID         INTERVAL          1
+INPUT      BINARY            1
+INPUT      INTERVAL          8
+INPUT      NOMINAL           1
+TARGET     INTERVAL          1
+ 
+ 
+ 
+ 
+ 
+Obs    Input Variable      Group Variable
+ 
+  1    Age                 GRP_Age
+  2    Basement            GRP_Basement
+  3    BasementType        GRP_BasementType
+  4    Baths               GRP_Baths
+  5    CentralAir          GRP_CentralAir
+  6    ConstructionType    GRP_ConstructionType
+  7    FirePlace           GRP_FirePlace
+  8    GarageSize          GRP_GarageSize
+  9    SecondFloor         GRP_SecondFloor
+ 10    TotalArea           GRP_TotalArea
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+                              Gini       Level for     Calculated      New                                        Gini
+Obs    Variable            Statistic    Interactive       Role        Role       Level      Label               Ordering
+ 
+  1    TotalArea             28.206      INTERVAL       Input        Default    INTERVAL    TotalArea               1
+  2    Age                   22.019      INTERVAL       Input        Default    INTERVAL    Age                     2
+  3    CentralAir            17.487      BINARY         Input        Default    BINARY      CentralAir              3
+  4    FirePlace             15.027      INTERVAL       Input        Default    INTERVAL    FirePlace               4
+  5    Baths                  9.398      INTERVAL       Input        Default    INTERVAL    Baths                   5
+  6    GarageSize             7.658      INTERVAL       Input        Default    INTERVAL    GarageSize              6
+  7    BasementType           4.576      NOMINAL        Input        Default    NOMINAL     BasementType            7
+  8    Basement               0.000      INTERVAL       Rejected     Default    INTERVAL    Basement                8
+  9    ConstructionType       0.000      INTERVAL       Rejected     Default    INTERVAL    ConstructionType        9
+ 10    SecondFloor            0.000      INTERVAL       Rejected     Default    INTERVAL    SecondFloor            10
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*

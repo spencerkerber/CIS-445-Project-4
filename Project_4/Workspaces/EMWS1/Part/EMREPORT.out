@@ -1,0 +1,28 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Summary Statistics for Interval Targets
+
+Data=DATA
+
+                                                    Number of                   Standard
+Variable     Maximum        Mean        Minimum    Observations    Missing     Deviation        Label
+
+SalePrice    135363     74649.190083     5014          363            0       16943.750187    SalePrice
+
+
+Data=TRAIN
+
+                                                    Number of                   Standard
+Variable     Maximum        Mean        Minimum    Observations    Missing     Deviation        Label
+
+SalePrice    135363     75984.275229     5014          218            0       16816.324743    SalePrice
+
+
+Data=VALIDATE
+
+                                                    Number of                   Standard
+Variable     Maximum        Mean        Minimum    Observations    Missing     Deviation        Label
+
+SalePrice    120422     72641.958621     11699         145            0       16994.460176    SalePrice

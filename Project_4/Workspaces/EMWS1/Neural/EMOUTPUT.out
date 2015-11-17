@@ -1,0 +1,530 @@
+*------------------------------------------------------------*
+User:                sakerb01
+Date:                November 12, 2015
+Time:                13:31:39
+*------------------------------------------------------------*
+* Training Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Variable Summary
+ 
+            Measurement    Frequency
+Role           Level         Count
+ 
+INPUT        ORDINAL           7
+REJECTED     BINARY            2
+REJECTED     INTERVAL          8
+REJECTED     NOMINAL           1
+TARGET       INTERVAL          1
+ 
+ 
+ 
+ 
+Predicted and decision variables
+ 
+Type          Variable      Label
+ 
+TARGET       SalePrice      SalePrice
+PREDICTED    P_SalePrice    Predicted: SalePrice
+RESIDUAL     R_SalePrice    Residual: SalePrice
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+Preliminary       Starting         Objective         Number
+ Training          Random           Function           of        Terminating
+    Run             Seed             Value         Iterations     Criteria
+ 
+        1               12345    192329108.1447           10
+        2          1384285978    174933144.8657           10
+        3          1071516945    162833482.1561           10
+        4          1816732956    155086291.6447           10
+        5            43195411    177145781.0442           10
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+                                            Optimization Start
+                                           Parameter Estimates
+                                                 Gradient           Lower           Upper    Active
+                                                Objective           Bound           Bound    Bound
+  N Parameter                    Estimate        Function      Constraint      Constraint    Constraint
+ 
+  1 GRP_Age2_H11                 1.468969         1086884           1E-10               .
+  2 GRP_Age3_H11                 1.412018         1042287           1E-10               .
+  3 GRP_Age4_H11                 0.787095        -1041585           1E-10               .
+  4 GRP_BasementType2_H11        1.625924        -1475067           1E-10               .
+  5 GRP_BasementType3_H11        1.256830        -1335359           1E-10               .
+  6 GRP_Baths3_H11                  1E-10         3482770           1E-10               .     Lower BC
+  7 GRP_CentralAir2_H11          2.796547         -789982           1E-10               .
+  8 GRP_FirePlace2_H11           0.583516         -115806           1E-10               .
+  9 GRP_GarageSize2_H11          0.401449         3220108           1E-10               .
+ 10 GRP_TotalArea2_H11              1E-10         1151754           1E-10               .     Lower BC
+ 11 GRP_TotalArea3_H11              1E-10         2690224           1E-10               .     Lower BC
+ 12 GRP_TotalArea4_H11       9.999999E-11          674814           1E-10               .     Lower BC
+ 13 GRP_Age2_H12                    1E-10         1258259           1E-10               .     Lower BC
+ 14 GRP_Age3_H12                    1E-10         1970338           1E-10               .     Lower BC
+ 15 GRP_Age4_H12                    1E-10         1267221           1E-10               .     Lower BC
+ 16 GRP_BasementType2_H12           1E-10           75774           1E-10               .     Lower BC
+ 17 GRP_BasementType3_H12        0.182933          270710           1E-10               .
+ 18 GRP_Baths3_H12               0.505853         1244271           1E-10               .
+ 19 GRP_CentralAir2_H12             1E-10          693733           1E-10               .     Lower BC
+ 20 GRP_FirePlace2_H12           0.536543        -1793881           1E-10               .
+ 21 GRP_GarageSize2_H12          2.650571        -1253438           1E-10               .
+ 22 GRP_TotalArea2_H12           0.348648          179517           1E-10               .
+ 23 GRP_TotalArea3_H12           0.990521          480746           1E-10               .
+ 24 GRP_TotalArea4_H12           1.930272          784982           1E-10               .
+ 25 GRP_Age2_H13                    1E-10         1297274           1E-10               .     Lower BC
+ 26 GRP_Age3_H13                    1E-10         2285108           1E-10               .     Lower BC
+ 27 GRP_Age4_H13                    1E-10         2819864           1E-10               .     Lower BC
+ 28 GRP_BasementType2_H13    9.999999E-11         2297605           1E-10               .     Lower BC
+ 29 GRP_BasementType3_H13           1E-10          814264           1E-10               .     Lower BC
+ 30 GRP_Baths3_H13               0.121048         1607617           1E-10               .
+ 31 GRP_CentralAir2_H13          0.557749         5176918           1E-10               .
+ 32 GRP_FirePlace2_H13           0.545891        -2437301           1E-10               .
+ 33 GRP_GarageSize2_H13          1.052242        -3331108           1E-10               .
+ 34 GRP_TotalArea2_H13           0.113945          116652           1E-10               .
+ 35 GRP_TotalArea3_H13           0.070912          526214           1E-10               .
+ 36 GRP_TotalArea4_H13           1.757010          245858           1E-10               .
+ 37 BIAS_H11                     2.319948          967618               .               .
+ 38 BIAS_H12                    -1.179266         -824731               .               .
+ 39 BIAS_H13                    -0.887529        -1057440               .               .
+ 40 H11_SalePrice            -2461.504229     2758.915793               .               .
+ 41 H12_SalePrice             2244.196009    -2249.686324               .               .
+ 42 H13_SalePrice             5022.160162     -970.135219               .               .
+ 43 BIAS_SalePrice                  75326    -1600.928937               .               .
+ 
+Value of Objective Function = 155086291.64
+ 
+ 
+ 
+          First Order Lagrange Multipliers
+ 
+ 
+                                             Lagrange
+          Active Constraint                Multiplier
+ 
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+                GRP_Age2_H11                        0
+ 
+ 
+  Projected Gradient
+ 
+     Free    Projected
+Dimension     Gradient
+ 
+        1      1086884
+        2      1086884
+        3      1086884
+        4      1086884
+        5      1086884
+        6      1086884
+        7      1086884
+        8      1086884
+        9      1086884
+       10      1086884
+       11      1086884
+       12      1086884
+       13      1086884
+       14      1086884
+       15      1086884
+       16      1086884
+       17      1086884
+       18      1086884
+       19      1086884
+       20      1086884
+       21      1086884
+       22      1086884
+       23      1086884
+       24      1086884
+       25      1086884
+       26      1086884
+       27      1086884
+       28      1086884
+       29      1086884
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+Levenberg-Marquardt Optimization
+ 
+ 
+Minimum Iterations                                    0
+Maximum Iterations                                   50
+Maximum Function Calls                       2147483647
+Maximum CPU Time                                  14400
+ABSGCONV Gradient Criterion                     0.00001
+GCONV Gradient Criterion                           1E-8
+GCONV2 Gradient Criterion                             0
+ABSFCONV Function Criterion                           0
+FCONV Function Criterion                         0.0001
+FCONV2 Function Criterion                             0
+FSIZE Parameter                                       0
+ABSXCONV Parameter Change Criterion                   0
+XCONV Parameter Change Criterion                      0
+XSIZE Parameter                                       0
+ABSCONV Function Criterion                 200841.53963
+Trust Region Initial Radius Factor                    1
+Singularity Tolerance (SINGULAR)                   1E-8
+Constraint Precision (LCEPS)                       1E-8
+Linearly Dependent Constraints (LCSING)            1E-8
+Releasing Active Constraints (LCDEACT)                .
+ 
+Levenberg-Marquardt Optimization
+ 
+Scaling Update of More (1978)
+ 
+Parameter Estimates              43
+Lower Bounds                     36
+Upper Bounds                      0
+ 
+                                             Optimization Start
+ 
+Active Constraints                                 14  Objective Function                       155086291.64
+Max Abs Gradient Element                 5176917.5796  Radius                                    26875355844
+ 
+ 
+                                                                                                         Ratio
+                                                                                                       Between
+                                                                                                        Actual
+                                                                 Objective     Max Abs                     and
+                     Function         Active        Objective     Function    Gradient               Predicted
+Iter     Restarts       Calls    Constraints         Function       Change     Element     Lambda       Change
+ 
+   1            0           6             16'       145009846     10076445     2164683      0.479        1.062
+   2            0           8             15'       140886223      4123623     2377815      0.646        1.049
+   3            0           9             15'       135429329      5456894     7658796      0.241        0.854
+   4            0          10             15'       135188035       241295    12585768     0.0282       0.0325
+   5            0          11             14'       128195945      6992090     2114388      0.166        0.952
+   6            0          12             14'       126500053      1695892     6586455     0.0133        0.479
+   7            0          13             13'       123017496      3482557     4729362     0.0222        0.597
+   8            0          14             13'       122207545       809951    17423807     0.0282        0.157
+   9            0          15             12'       117895405      4312139     6537551     0.0160        0.843
+  10            0          16             11'       117871492      23913.9    16505000    0.00245       0.0110
+  11            0          17             10'       115797355      2074137     6573231    0.00468        0.825
+  12            0          18             10'       114554740      1242615     9680322    0.00028        0.665
+  13            0          20              9'       113978255       576484     2236814     0.0109        0.709
+  14            0          21              9'       113828663       149593     1589086    0.00123        0.880
+  15            0          22              9'       113795549      33113.5     1212269    0.00054        0.278
+  16            0          24              9'       113777444      18105.6     1955636    0.00212        0.185
+  17            0          26              9        113756181      21262.4      626250    0.00570        0.285
+  18            0          27              8'       113755699        482.0      832569    0.00407       0.0114
+  19            0          29              9        113742279      13420.3      806890      0.139        0.667
+  20            0          30              8'       113735935       6344.1     92193.4     0.0323        0.792
+  21            0          31              8        113733959       1975.7     50880.8    0.00340        1.060
+  22            0          32              8        113731077       2881.9     57054.2    0.00141        1.026
+  23            0          33              8        113726460       4617.4     65998.3    0.00065        0.960
+  24            0          34              9        113716767       9693.1     70271.5    0.00018        0.817
+  25            0          35              9        113706004      10762.8      141639    0.00006        0.689
+  26            0          37              9        113704384       1620.0      175226    0.00007        0.352
+  27            0          40              9        113704285      98.6943      251423    0.00072       0.0251
+  28            0          42              9        113702711       1573.9      128718     0.0118        0.407
+  29            0          43              9        113702586        125.4      128895    0.00208       0.0958
+  30            0          44              9        113702037        549.1     62297.5     0.0160        0.493
+ 
+                                            Optimization Results
+ 
+Iterations                                         30  Function Calls                                     46
+Jacobian Calls                                     32  Active Constraints                                  9
+Objective Function                       113702036.87  Max Abs Gradient Element                 62297.533211
+Lambda                                   0.0159707881  Actual Over Pred Change                  0.4933959525
+Radius                                   182.07686414
+ 
+Convergence criterion (FCONV=0.0001) satisfied.
+ 
+NOTE: At least one element of the gradient is greater than 1e-3.
+ 
+ 
+ 
+ 
+ 
+ 
+The NEURAL Procedure
+ 
+                           Optimization Results
+                           Parameter Estimates
+                                                 Gradient    Active
+                                                Objective    Bound
+  N Parameter                    Estimate        Function    Constraint
+ 
+  1 GRP_Age2_H11                 6.220699     3189.459268
+  2 GRP_Age3_H11                 0.055413           16867
+  3 GRP_Age4_H11                 0.211741       69.829800
+  4 GRP_BasementType2_H11        3.096756    -1400.773712
+  5 GRP_BasementType3_H11        2.769230    -1389.942962
+  6 GRP_Baths3_H11                  1E-10         6957974     Lower BC
+  7 GRP_CentralAir2_H11          4.020536    -5367.891233
+  8 GRP_FirePlace2_H11           4.012754    -4792.333744
+  9 GRP_GarageSize2_H11          0.307789     6569.492276
+ 10 GRP_TotalArea2_H11           0.045447    -4594.843134
+ 11 GRP_TotalArea3_H11           0.293667      975.580386
+ 12 GRP_TotalArea4_H11           2.797003    -5121.879938
+ 13 GRP_Age2_H12                    1E-10          434235     Lower BC
+ 14 GRP_Age3_H12                    1E-10         3302367     Lower BC
+ 15 GRP_Age4_H12                    1E-10     9299.358815     Lower BC
+ 16 GRP_BasementType2_H12        2.969543      219.156289
+ 17 GRP_BasementType3_H12        0.536465    -2156.390554
+ 18 GRP_Baths3_H12               0.050269     -164.139886
+ 19 GRP_CentralAir2_H12          3.266053    -1178.521931
+ 20 GRP_FirePlace2_H12           7.302984    -1860.910421
+ 21 GRP_GarageSize2_H12          7.480513     2123.039105
+ 22 GRP_TotalArea2_H12       9.999999E-11          487070     Lower BC
+ 23 GRP_TotalArea3_H12           7.040270    -1250.463091
+ 24 GRP_TotalArea4_H12              1E-10           86214     Lower BC
+ 25 GRP_Age2_H13                 1.254084          -34261
+ 26 GRP_Age3_H13                    1E-10         3735712     Lower BC
+ 27 GRP_Age4_H13                    1E-10         8495817     Lower BC
+ 28 GRP_BasementType2_H13        0.028479           62298
+ 29 GRP_BasementType3_H13        0.755074           28315
+ 30 GRP_Baths3_H13               0.057587           16849
+ 31 GRP_CentralAir2_H13          0.300558           34862
+ 32 GRP_FirePlace2_H13           0.309750           28888
+ 33 GRP_GarageSize2_H13          0.155976          -34378
+ 34 GRP_TotalArea2_H13           0.034424           13509
+ 35 GRP_TotalArea3_H13       9.999999E-11         6174491     Lower BC
+ 36 GRP_TotalArea4_H13           0.870554           38876
+ 37 BIAS_H11                     1.940048     6429.356155
+ 38 BIAS_H12                    -4.691592     2689.344043
+ 39 BIAS_H13                    -0.636938          -46588
+ 40 H11_SalePrice                  -19808        0.458137
+ 41 H12_SalePrice                   12140        0.326037
+ 42 H13_SalePrice                   22455        0.111757
+ 43 BIAS_SalePrice                  85209        1.072523
+ 
+Value of Objective Function = 113702036.87
+ 
+ 
+ 
+          First Order Lagrange Multipliers
+ 
+ 
+                                             Lagrange
+          Active Constraint                Multiplier
+ 
+ Lower BC       GRP_Baths3_H11                6957974
+ Lower BC       GRP_Age2_H12                   434235
+ Lower BC       GRP_Age3_H12                  3302367
+ Lower BC       GRP_Age4_H12              9299.358815
+ Lower BC       GRP_TotalArea2_H12             487070
+ Lower BC       GRP_TotalArea4_H12              86214
+ Lower BC       GRP_Age3_H13                  3735712
+ Lower BC       GRP_Age4_H13                  8495817
+ Lower BC       GRP_TotalArea3_H13            6174491
+ 
+ 
+  Projected Gradient
+ 
+     Free    Projected
+Dimension     Gradient
+ 
+        1  3189.459268
+        2        16867
+        3    69.829800
+        4 -1400.773712
+        5 -1389.942962
+        6 -5367.891233
+        7 -4792.333744
+        8  6569.492276
+        9 -4594.843134
+       10   975.580386
+       11 -5121.879938
+       12   219.156289
+       13 -2156.390554
+       14  -164.139886
+       15 -1178.521931
+       16 -1860.910421
+       17  2123.039105
+       18 -1250.463091
+       19       -34261
+       20        62298
+       21        28315
+       22        16849
+       23        34862
+       24        28888
+       25       -34378
+       26        13509
+       27        38876
+       28  6429.356155
+       29  2689.344043
+       30       -46588
+       31     0.458137
+       32     0.326037
+       33     0.111757
+       34     1.072523
+
+
+*------------------------------------------------------------*
+* Score Output
+*------------------------------------------------------------*
+
+
+*------------------------------------------------------------*
+* Report Output
+*------------------------------------------------------------*
+ 
+ 
+ 
+ 
+Fit Statistics
+ 
+Target=SalePrice Target Label=SalePrice
+ 
+   Fit
+Statistics    Statistics Label                            Train        Validation
+ 
+ _DFT_        Total Degrees of Freedom                   193.00               .
+ _DFE_        Degrees of Freedom for Error               150.00               .
+ _DFM_        Model Degrees of Freedom                    43.00               .
+ _NW_         Number of Estimated Weights                 43.00               .
+ _AIC_        Akaike's Information Criterion            3725.88               .
+ _SBC_        Schwarz's Bayesian Criterion              3866.18               .
+ _ASE_        Average Squared Error                155086291.64      279221039.01
+ _MAX_        Maximum Absolute Error                   37684.58          60251.00
+ _DIV_        Divisor for ASE                            193.00            145.00
+ _NOBS_       Sum of Frequencies                         193.00            145.00
+ _RASE_       Root Average Squared Error               12453.36          16709.91
+ _SSE_        Sum of Squared Errors              29931654287.42    40487050655.86
+ _SUMW_       Sum of Case Weights Times Freq             193.00            145.00
+ _FPE_        Final Prediction Error               244002432.19               .
+ _MSE_        Mean Squared Error                   199544361.92      279221039.01
+ _RFPE_       Root Final Prediction Error              15620.58               .
+ _RMSE_       Root Mean Squared Error                  14126.02          16709.91
+ _AVERR_      Average Error Function               155086291.64      279221039.01
+ _ERR_        Error Function                     29931654287.42    40487050655.86
+ _MISC_       Misclassification Rate                        .                 .
+ _WRONG_      Number of Wrong Classifications               .                 .
+ 
+ 
+ 
+ 
+Assessment Score Rankings
+ 
+Data Role=TRAIN Target Variable=SalePrice Target Label=SalePrice
+ 
+           Number of       Mean         Mean
+Depth    Observations     Target     Predicted
+ 
+   5          11         91495.00     84419.56
+  10          12         85357.42     83552.96
+  15           8         84437.88     81572.43
+  20           8         77854.00     80445.95
+  25          11         82361.82     77997.85
+  30           8         76807.38     75787.88
+  35          12         75640.08     75533.84
+  40          12         77699.25     74679.68
+  45          12         75075.83     73286.57
+  50           5         72774.40     72996.17
+  55           8         72912.63     72601.32
+  60           9         74843.00     72164.63
+  65          11         72036.91     71820.36
+  70          10         71936.80     71099.39
+  75           8         69915.50     70600.90
+  80          10         72994.80     70436.53
+  85          10         61847.80     69511.10
+  90          11         68051.82     68605.42
+  95           8         64964.25     67408.66
+ 100           9         64370.22     66190.97
+ 
+ 
+Data Role=VALIDATE Target Variable=SalePrice Target Label=SalePrice
+ 
+           Number of       Mean         Mean
+Depth    Observations     Target     Predicted
+ 
+   5           8         95488.38     84428.62
+  10          11         70952.82     81359.11
+  15           3         67455.67     80405.89
+  20           7         62822.57     80088.48
+  25           8         79789.88     77654.08
+  30           9         65894.89     76026.38
+  35           5         71829.40     75736.00
+  40           7         71928.71     75333.33
+  45           8         79236.50     74224.78
+  50          10         75509.50     74065.84
+  55           6         75385.17     73331.11
+  60           6         66850.50     73029.47
+  65           7         75705.86     72396.74
+  70           7         73262.71     71921.44
+  75          10         77081.20     71280.77
+  80           4         65572.75     70967.04
+  85           8         64265.75     70542.63
+  90          11         71598.64     69783.00
+  95           3         70333.00     68156.98
+ 100           7         60222.29     66393.00
+ 
+ 
+ 
+ 
+Assessment Score Distribution
+ 
+Data Role=TRAIN Target Variable=SalePrice Target Label=SalePrice
+ 
+                            Mean         Mean        Number of       Model
+ Range for Predicted       Target     Predicted    Observations      Score
+ 
+83638.048 -  84577.016    88466.88     84344.17         17         84107.53
+82699.081 -  83638.048    87799.50     82899.98          6         83168.56
+81760.114 -  82699.081    80191.50     82461.38          4         82229.60
+79882.179 -  80821.146    84209.40     80435.82         15         80351.66
+78943.212 -  79882.179    78024.00     79665.62          1         79412.70
+76126.310 -  77065.277    77483.43     76867.84          7         76595.79
+75187.343 -  76126.310    74401.17     75584.13         24         75656.83
+74248.375 -  75187.343    85633.50     75173.13          2         74717.86
+73309.408 -  74248.375    78673.75     73960.76          8         73778.89
+72370.441 -  73309.408    74549.50     72989.14         22         72839.92
+71431.473 -  72370.441    73439.67     71989.93         21         71900.96
+70492.506 -  71431.473    72115.25     70789.34         24         70961.99
+69553.539 -  70492.506    65905.14     70127.33          7         70023.02
+68614.571 -  69553.539    64518.33     69159.83         12         69084.05
+67675.604 -  68614.571    71297.90     68201.89         10         68145.09
+66736.637 -  67675.604    57945.50     67028.11          2         67206.12
+65797.669 -  66736.637    61776.55     66281.50         11         66267.15
+ 
+ 
+Data Role=VALIDATE Target Variable=SalePrice Target Label=SalePrice
+ 
+                            Mean         Mean        Number of       Model
+ Range for Predicted       Target     Predicted    Observations      Score
+ 
+83628.834 -  84577.016    95488.38     84428.62          8         84102.92
+82680.652 -  83628.834    67016.00     82899.98          2         83154.74
+81732.469 -  82680.652    54058.00     82182.92          2         82206.56
+79836.105 -  80784.287    70644.44     80370.09         18         80310.20
+78887.923 -  79836.105    78850.00     79506.34          1         79362.01
+76991.559 -  77939.741    80703.00     77107.81          2         77465.65
+76043.377 -  76991.559    73570.17     76838.88          6         76517.47
+75095.194 -  76043.377    69536.95     75615.16         19         75569.29
+74147.012 -  75095.194    79236.50     74224.78          8         74621.10
+73198.830 -  74147.012    76052.84     73698.92         19         73672.92
+72250.648 -  73198.830    68322.71     72665.14          7         72724.74
+71302.466 -  72250.648    78152.43     71866.94         14         71776.56
+70354.284 -  71302.466    65829.26     70816.14         19         70828.37
+69406.102 -  70354.284    72206.00     70033.11          5         69880.19
+68457.920 -  69406.102    70414.67     69306.13          6         68932.01
+67509.737 -  68457.920    79267.00     68350.58          1         67983.83
+66561.555 -  67509.737    59975.33     66740.01          6         67035.65
+65613.373 -  66561.555    63934.00     65764.21          2         66087.46

@@ -1,0 +1,93 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Variable Summary
+
+            Measurement    Frequency
+Role           Level         Count
+
+INPUT        ORDINAL           7    
+REJECTED     BINARY            2    
+REJECTED     INTERVAL          8    
+REJECTED     NOMINAL           1    
+TARGET       INTERVAL          1    
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Predicted and decision variables
+
+Type          Variable      Label
+
+TARGET       SalePrice      SalePrice           
+PREDICTED    P_SalePrice    Predicted: SalePrice
+RESIDUAL     R_SalePrice    Residual: SalePrice 
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The DMREG Procedure
+
+                 Model Information
+
+Training Data Set             WORK.EM_DMREG.VIEW   
+DMDB Catalog                  WORK.REG_DMDB        
+Target Variable               SalePrice (SalePrice)
+Target Measurement Level      Interval             
+Error                         Normal               
+Link Function                 Identity             
+Number of Model Parameters    13                   
+Number of Observations        193                  
+
+
+                             Analysis of Variance
+ 
+                                   Sum of
+Source                 DF         Squares     Mean Square    F Value    Pr > F
+
+Model                  12      9740211505       811684292       5.07    <.0001
+Error                 180     28821364105       160118689                     
+Corrected Total       192     38561575609                                     
+
+
+              Model Fit Statistics
+
+R-Square        0.2526     Adj R-Sq        0.2028
+AIC          3658.5867     BIC          3662.4540
+SBC          3701.0016     C(p)           13.0000
+
+
+                Type 3 Analysis of Effects
+ 
+                                Sum of
+Effect                DF       Squares    F Value    Pr > F
+
+GRP_Age                3    1434678982       2.99    0.0325
+GRP_BasementType       2     619428110       1.93    0.1475
+GRP_Baths              1    67333801.2       0.42    0.5175
+GRP_CentralAir         1     213672341       1.33    0.2495
+GRP_FirePlace          1     773612149       4.83    0.0292
+GRP_GarageSize         1    1057764163       6.61    0.0110
+GRP_TotalArea          3    3303089496       6.88    0.0002
+
+
+               Analysis of Maximum Likelihood Estimates
+ 
+                                        Standard
+Parameter             DF    Estimate       Error    t Value    Pr > |t|
+
+Intercept              1     66921.7      2423.6      27.61      <.0001
+GRP_Age          2     1      4865.4      1737.6       2.80      0.0057
+GRP_Age          3     1      -568.2      1667.9      -0.34      0.7338
+GRP_Age          4     1     -1497.4      1676.8      -0.89      0.3730
+GRP_BasementType 2     1      3919.6      2234.2       1.75      0.0811
+GRP_BasementType 3     1      1883.3      3192.7       0.59      0.5560
+GRP_Baths        3     1      -694.3      1070.7      -0.65      0.5175
+GRP_CentralAir   2     1      1251.0      1082.9       1.16      0.2495
+GRP_FirePlace    2     1     -2961.1      1347.2      -2.20      0.0292
+GRP_GarageSize   2     1     -3666.9      1426.7      -2.57      0.0110
+GRP_TotalArea    2     1     -2003.7      1793.2      -1.12      0.2653
+GRP_TotalArea    3     1     -3834.4      1612.2      -2.38      0.0184
+GRP_TotalArea    4     1     -1635.5      1624.4      -1.01      0.3154

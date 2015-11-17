@@ -1,0 +1,32 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Variable Summary
+
+          Measurement    Frequency
+Role         Level         Count
+
+ASSESS     NOMINAL           1    
+ID         INTERVAL          1    
+INPUT      BINARY            1    
+INPUT      INTERVAL          8    
+INPUT      NOMINAL           1    
+TARGET     INTERVAL          1    
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+Obs    Input Variable      Group Variable
+
+  1    Age                 GRP_Age             
+  2    Basement            GRP_Basement        
+  3    BasementType        GRP_BasementType    
+  4    Baths               GRP_Baths           
+  5    CentralAir          GRP_CentralAir      
+  6    ConstructionType    GRP_ConstructionType
+  7    FirePlace           GRP_FirePlace       
+  8    GarageSize          GRP_GarageSize      
+  9    SecondFloor         GRP_SecondFloor     
+ 10    TotalArea           GRP_TotalArea       

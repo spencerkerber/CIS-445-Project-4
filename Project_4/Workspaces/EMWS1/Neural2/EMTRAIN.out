@@ -1,0 +1,334 @@
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Variable Summary
+
+          Measurement    Frequency
+ Role        Level         Count
+
+INPUT      BINARY             1   
+INPUT      INTERVAL          10   
+INPUT      NOMINAL            5   
+TARGET     INTERVAL           1   
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+Predicted and decision variables
+
+Type          Variable      Label
+
+TARGET       SalePrice      SalePrice           
+PREDICTED    P_SalePrice    Predicted: SalePrice
+RESIDUAL     R_SalePrice    Residual: SalePrice 
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The NEURAL Procedure
+
+Preliminary       Starting         Objective         Number
+ Training          Random           Function           of        Terminating
+    Run             Seed             Value         Iterations     Criteria
+
+        1               12345    215205757.9155           10                
+        2           734635899    246547466.6253           10                
+        3             6541955    200506770.8186           10                
+        4           335245709    225993540.6684           10                
+        5          1489754846    263168583.8629           10                
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The NEURAL Procedure
+
+                   Optimization Start
+                   Parameter Estimates
+                                                Gradient
+                                               Objective
+  N Parameter                   Estimate        Function
+
+  1 Age_H11                     1.066857           23461
+  2 Basement_H11               -1.277639          -96622
+  3 Baths_H11                   1.384188          110551
+  4 ConstructionType_H11        1.185486         -219876
+  5 FirePlace_H11               1.551164          -73990
+  6 FirstFloor_H11             -1.089350           23364
+  7 GarageSize_H11             -1.941918          385049
+  8 SecondFloor_H11            -3.434916          146296
+  9 TotalArea_H11              -3.404685          246456
+ 10 UpperArea_H11              -0.603982          177844
+ 11 Age_H12                     1.296953         -232017
+ 12 Basement_H12                2.185372          -22212
+ 13 Baths_H12                  -1.036271         -722871
+ 14 ConstructionType_H12       -2.396885          163613
+ 15 FirePlace_H12              -2.767433         1066606
+ 16 FirstFloor_H12             -0.153076         -168207
+ 17 GarageSize_H12             -2.503196          197035
+ 18 SecondFloor_H12             1.122686          -58473
+ 19 TotalArea_H12               0.527496         -207868
+ 20 UpperArea_H12               0.057341          -92909
+ 21 Age_H13                     3.973996         -581831
+ 22 Basement_H13                0.822538          -86204
+ 23 Baths_H13                  -0.333117          862566
+ 24 ConstructionType_H13       -1.313479          -52918
+ 25 FirePlace_H13               0.550856          835395
+ 26 FirstFloor_H13             -0.783195         -814184
+ 27 GarageSize_H13              2.152189          259352
+ 28 SecondFloor_H13            -0.055066         -125488
+ 29 TotalArea_H13              -0.555262         -145003
+ 30 UpperArea_H13              -0.179955          567698
+ 31 CentralAir0_H11             2.548463          403503
+ 32 CentralAir0_H12             0.498247          314769
+ 33 CentralAir0_H13             0.830814         -499801
+ 34 BasementType0_H11           1.989421          -57434
+ 35 BasementType1_H11          -0.325952    -5388.199837
+ 36 GarageType0_H11             0.912993           30631
+ 37 GarageType1_H11             0.597540           16511
+ 38 GarageType2_H11            -0.020010           68999
+ 39 GarageType3_H11            -1.667775    -7374.643486
+ 40 GarageType4_H11             0.928349     -865.995947
+ 41 LotSize1_H11                1.766340          109517
+ 42 LotSize2_H11                0.194126    -1617.670803
+ 43 Neighborhood1_H11           0.740860          208804
+ 44 WallType1_H11               3.347160         -398855
+ 45 WallType2_H11               0.335557          228245
+ 46 BasementType0_H12           1.299118          575794
+ 47 BasementType1_H12          -0.889536          781934
+ 48 GarageType0_H12            -0.021882         -111490
+ 49 GarageType1_H12            -0.197724         -230717
+ 50 GarageType2_H12            -0.971943         -470480
+ 51 GarageType3_H12            -1.844456           23921
+ 52 GarageType4_H12            -0.455222      281.795088
+ 53 LotSize1_H12               -0.293137         -801780
+ 54 LotSize2_H12                1.016895    -5702.530691
+ 55 Neighborhood1_H12           0.196382          -99978
+ 56 WallType1_H12               2.036406         -406629
+ 57 WallType2_H12              -1.115207          -79237
+ 58 BasementType0_H13           3.631687         -838508
+ 59 BasementType1_H13           0.781395         -972672
+ 60 GarageType0_H13            -2.275630          165889
+ 61 GarageType1_H13             0.546606           87591
+ 62 GarageType2_H13             2.226594          469995
+ 63 GarageType3_H13             0.419939          175284
+ 64 GarageType4_H13             0.006612     -793.507723
+ 65 LotSize1_H13                0.927683          904867
+ 66 LotSize2_H13                0.605057    -6910.213409
+ 67 Neighborhood1_H13           1.445568         -285831
+ 68 WallType1_H13               0.178850          465718
+ 69 WallType2_H13               1.278134          436736
+ 70 BIAS_H11                    2.251783          107899
+ 71 BIAS_H12                   -2.245376         -790377
+ 72 BIAS_H13                    2.441048          897959
+ 73 H11_SalePrice           -4726.356488     5935.624426
+ 74 H12_SalePrice           -3500.805674     2626.956410
+ 75 H13_SalePrice           -2942.516846     4167.664547
+ 76 BIAS_SalePrice                 77560     1548.391922
+
+Value of Objective Function = 200506770.82
+
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The NEURAL Procedure
+
+Levenberg-Marquardt Optimization
+
+
+Minimum Iterations                                0
+Maximum Iterations                               50
+Maximum Function Calls                   2147483647
+Maximum CPU Time                              14400
+ABSGCONV Gradient Criterion                 0.00001
+GCONV Gradient Criterion                       1E-8
+GCONV2 Gradient Criterion                         0
+ABSFCONV Function Criterion                       0
+FCONV Function Criterion                     0.0001
+FCONV2 Function Criterion                         0
+FSIZE Parameter                                   0
+ABSXCONV Parameter Change Criterion               0
+XCONV Parameter Change Criterion                  0
+XSIZE Parameter                                   0
+ABSCONV Function Criterion             282788.77788
+Trust Region Initial Radius Factor                1
+Singularity Tolerance (SINGULAR)               1E-8
+
+Levenberg-Marquardt Optimization
+
+Scaling Update of More (1978)
+
+Parameter Estimates              76
+
+                                             Optimization Start
+
+Active Constraints                                  0  Objective Function                       200506770.82
+Max Abs Gradient Element                 1066605.6127  Radius                                   4422024497.5
+
+
+                                                                                                         Ratio
+                                                                                                       Between
+                                                                                                        Actual
+                                                                 Objective     Max Abs                     and
+                     Function         Active        Objective     Function    Gradient               Predicted
+Iter     Restarts       Calls    Constraints         Function       Change     Element     Lambda       Change
+
+   1*           0           8              0        197957507      2549264     9804037      0.303       0.0844
+   2*           0          16              0        189319747      8637760     3874651    1697435        0.377
+   3*           0          17              0        187583198      1736549     3764461    1135826        0.132
+   4*           0          19              0        183563818      4019380     1960631    3840327        0.527
+   5*           0          20              0        183221654       342164     2165942    1997196       0.0917
+   6*           0          21              0        181688595      1533060      980816    6098978        0.651
+   7*           0          22              0        181664446      24148.8     1743161    1972075       0.0266
+   8*           0          23              0        181157341       507104      614904    1.059E7        0.542
+   9*           0          24              0        181039408       117934      790418    2807033        0.442
+  10*           0          26              0        180958344      81063.5      616867    1.086E7        0.396
+  11*           0          27              0        180908790      49554.7      558693    6795122        0.397
+  12*           0          28              0        180865399      43390.4      657278    6931941        0.342
+  13*           0          29              0        180820433      44965.9      597443    7202578        0.327
+  14*           0          30              0        180778535      41898.1      730025    7121937        0.311
+  15*           0          31              0        180734171      44364.3      613687    7322075        0.307
+  16*           0          32              0        180688537      45633.5      821120    7215771        0.324
+  17*           0          33              0        180638240      50297.7      661165    7272758        0.329
+  18*           0          34              0        180576602      61637.7      958719    7523821        0.413
+  19*           0          35              0        180502180      74421.7      678007    8182135        0.479
+  20*           0          36              0        180396627       105554     1128619    7912338        0.693
+  21*           0          37              0        180267379       129248      673771    9506634        0.788
+  22*           0          38              0        179828031       439348     1321944    2225860        1.122
+  23*           0          39              0        179180425       647606     1465361     902967        0.793
+  24*           0          40              0        178909542       270882     2154501     709038        0.102
+  25*           0          41              0        177689480      1220062     1082334     656210        0.452
+  26*           0          43              0        177235714       453766     1381587    3120537        0.326
+  27*           0          44              0        176864603       371111     1899266    1822267        0.338
+  28*           0          46              0        176521911       342692      923062    1.253E7        0.463
+  29*           0          47              0        176507026      14885.2     1173045    3111802       0.0512
+  30*           0          48              0        176357086       149940      517427    2.204E7        0.476
+  31*           0          49              0        176311664      45421.3      483980    5380323        0.490
+  32*           0          51              0        176279548      32116.4      355233    1.796E7        0.467
+  33*           0          52              0        176254126      25421.8      293251    1.126E7        0.636
+  34*           0          53              0        176230122      24004.1      323290    1.093E7        0.642
+  35*           0          54              0        176205587      24534.8      291392    1.073E7        0.662
+  36*           0          55              0        176182106      23481.1      307307    1.056E7        0.657
+  37*           0          56              0        176125415      56691.6      452742    2798416        0.635
+  38*           0          58              0        176097416      27998.3      447370    1.361E7        0.357
+  39*           0          59              0        176072808      24608.3      358515    9868548        0.432
+  40*           0          60              0        176051426      21381.8      437153    1.009E7        0.391
+  41*           0          61              0        176027128      24297.9      363336    9906999        0.434
+  42*           0          62              0        176005397      21731.9      424681    9934082        0.406
+  43*           0          63              0        175980505      24891.7      359434    9898120        0.453
+  44*           0          64              0        175957427      23078.2      407908    9864150        0.442
+  45*           0          65              0        175931104      26322.6      352366    9910225        0.493
+  46*           0          66              0        175905672      25431.8      400815    9821120        0.501
+  47*           0          67              0        175847036      58636.1      585062    2618655        0.462
+  48*           0          69              0        175789799      57237.6      377555    1.609E7        0.440
+  49*           0          70              0        175753347      36451.6      350401    8564357        0.585
+  50*           0          71              0        175719146      34201.3      424687    9061174        0.536
+
+                                            Optimization Results
+
+Iterations                                         50  Function Calls                                     73
+Jacobian Calls                                     52  Active Constraints                                  0
+Objective Function                       175719145.75  Max Abs Gradient Element                 424686.92691
+Lambda                                   9061173.9719  Actual Over Pred Change                    0.53623073
+Radius                                   0.0771154986                                                       
+
+LEVMAR needs more than 50 iterations or 2147483647 function calls.                                
+
+WARNING: LEVMAR Optimization cannot be completed.
+
+ 
+                                                                                                                                                                                                                                                                
+ 
+ 
+
+The NEURAL Procedure
+
+                  Optimization Results
+                   Parameter Estimates
+                                                Gradient
+                                               Objective
+  N Parameter                   Estimate        Function
+
+  1 Age_H11                     1.034327          -18343
+  2 Basement_H11               -1.550890           19595
+  3 Baths_H11                   1.519058    -3773.252930
+  4 ConstructionType_H11        3.361067          -68351
+  5 FirePlace_H11               2.256832          -32099
+  6 FirstFloor_H11             -1.044923           22668
+  7 GarageSize_H11             -3.448354           66156
+  8 SecondFloor_H11            -5.310422           74604
+  9 TotalArea_H11              -5.384377           76656
+ 10 UpperArea_H11              -1.410649           15835
+ 11 Age_H12                     2.084328          -39428
+ 12 Basement_H12                0.684910    -7241.587081
+ 13 Baths_H12                  -1.509326    -3057.477392
+ 14 ConstructionType_H12       -3.444396           41651
+ 15 FirePlace_H12              -4.141438           61250
+ 16 FirstFloor_H12              1.111204          -18837
+ 17 GarageSize_H12             -3.435143           70896
+ 18 SecondFloor_H12             1.666977      427.860611
+ 19 TotalArea_H12               0.207343     3197.370304
+ 20 UpperArea_H12              -0.784045           18878
+ 21 Age_H13                     5.094054         -424687
+ 22 Basement_H13                1.289311          178160
+ 23 Baths_H13                  -1.559802          171115
+ 24 ConstructionType_H13       -1.531009         -264556
+ 25 FirePlace_H13               1.118746          -86458
+ 26 FirstFloor_H13              0.342853         -303545
+ 27 GarageSize_H13              2.646427         -126988
+ 28 SecondFloor_H13            -0.408005         -222402
+ 29 TotalArea_H13              -0.338411         -392037
+ 30 UpperArea_H13              -0.112994          -81089
+ 31 CentralAir0_H11             3.050104          -47450
+ 32 CentralAir0_H12            -0.460336    -2042.232513
+ 33 CentralAir0_H13             1.999594           40845
+ 34 BasementType0_H11           2.084372    -8581.155558
+ 35 BasementType1_H11          -0.268912          -29117
+ 36 GarageType0_H11             1.296408    -6071.426482
+ 37 GarageType1_H11             0.986426    -2143.680720
+ 38 GarageType2_H11             0.966235    -3740.143114
+ 39 GarageType3_H11             8.036140        0.293085
+ 40 GarageType4_H11          1486.035778               0
+ 41 LotSize1_H11                1.633681          -11955
+ 42 LotSize2_H11               45.952570               0
+ 43 Neighborhood1_H11           1.146204          -39244
+ 44 WallType1_H11               5.546872          -78599
+ 45 WallType2_H11               0.932955          -28443
+ 46 BasementType0_H12           1.825072          -11709
+ 47 BasementType1_H12          -1.950007           26558
+ 48 GarageType0_H12            -1.105015           31855
+ 49 GarageType1_H12             0.505625     -637.863029
+ 50 GarageType2_H12            -1.501589           21456
+ 51 GarageType3_H12           -63.474326               0
+ 52 GarageType4_H12           -24.256968               0
+ 53 LotSize1_H12               -1.404277           52673
+ 54 LotSize2_H12              963.178390               0
+ 55 Neighborhood1_H12          -0.003557          -11724
+ 56 WallType1_H12               2.873516          -59294
+ 57 WallType2_H12              -2.105771           30645
+ 58 BasementType0_H13           5.323176          191998
+ 59 BasementType1_H13           1.658520          210700
+ 60 GarageType0_H13            -5.963377          -54368
+ 61 GarageType1_H13            -1.798699          -16017
+ 62 GarageType2_H13             3.327976         -181235
+ 63 GarageType3_H13            -1.993452     -114.208974
+ 64 GarageType4_H13          1618.403109               0
+ 65 LotSize1_H13                1.986122         -251734
+ 66 LotSize2_H13               11.320295     0.000000357
+ 67 Neighborhood1_H13           1.749229         -220352
+ 68 WallType1_H13               0.292759         -171279
+ 69 WallType2_H13               1.699518          -63157
+ 70 BIAS_H11                    2.119246          -11955
+ 71 BIAS_H12                   -3.361954           52673
+ 72 BIAS_H13                    3.500174         -251734
+ 73 H11_SalePrice           -7689.190361     1355.931240
+ 74 H12_SalePrice           -5214.659982     2399.386880
+ 75 H13_SalePrice           -4903.303336     2648.792025
+ 76 BIAS_SalePrice                 77197      555.531136
+
+Value of Objective Function = 175719145.75
+

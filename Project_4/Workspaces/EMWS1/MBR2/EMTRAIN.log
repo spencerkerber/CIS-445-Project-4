@@ -1,0 +1,578 @@
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "November 10, 2015" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:28:48" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Training Log
+Date:                November 10, 2015
+Time:                13:28:48
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O0_7CKBC "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O0_7CKBC new;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOG "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMLOG.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "November 10, 2015" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:28:48" );
+MPRINT(EM_DIAGRAM):   file _LOG;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                sakerb01";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "Site:                70080760";
+MPRINT(EM_DIAGRAM):   put "Platform:            X64_7PRO";
+MPRINT(EM_DIAGRAM):   put "Maintenance Release: 9.04.01M1P120413";
+MPRINT(EM_DIAGRAM):   put "EM Version:          13.1";
+MPRINT(EM_DIAGRAM):   put "* ";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMTRAIN.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _LOG MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_LOGIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   filename _LOGIN "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMSCORE.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   file _LOG mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _LOGIN "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMREPORT.log" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _LOGIN;
+MPRINT(EM_DIAGRAM):    filename _LOG;
+MPRINT(EM_DIAGRAM):    filename _OUT "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMOUTPUT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "November 10, 2015" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:28:48" );
+MPRINT(EM_DIAGRAM):   file _OUT;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "User:                sakerb01";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Training Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMTRAIN.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_COPYFILE):   data _null_;
+MPRINT(EM_COPYFILE):   length line $20000;
+MPRINT(EM_COPYFILE):   file _OUT MOD lrecl=20000;
+MPRINT(EM_COPYFILE):   fid=fopen("_OUTIN",'i',20000,'v');
+MPRINT(EM_COPYFILE):   if fid > 0 then do;
+MPRINT(EM_COPYFILE):   do while(^fread(fid));
+MPRINT(EM_COPYFILE):   rlen = frlen(fid);
+MPRINT(EM_COPYFILE):   rc= fget(fid,line,20000);
+MPRINT(EM_COPYFILE):   start = length(line)-length(left(line))+1;
+MPRINT(EM_COPYFILE):   line=strip(line);
+MPRINT(EM_COPYFILE):   put @start line;
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   if fid > 0 then rc=fclose(fid);
+MPRINT(EM_COPYFILE):   end;
+MPRINT(EM_COPYFILE):   run;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Score Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMSCORE.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   file _OUT mod;
+MPRINT(EM_DIAGRAM):   put _page_;
+MPRINT(EM_DIAGRAM):   put // "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Output";
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    filename _OUTIN "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   filename _OUTIN;
+MPRINT(EM_DIAGRAM):    filename _OUT;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMRUNSTATUS.xml' encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):    filename _emtool_ 'C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\MBR2\EMRUNSTATUS.xml' encoding="UTF-8" NOBOM;
+50648      proc freq data=EMWS1.MBR2_VariableSet noprint;
+MPRINT(EM_DIAGRAM):    proc freq data=EMWS1.MBR2_VariableSet noprint;
+50649      table ROLE*LEVEL/out=WORK.MBR2META;
+MPRINT(EM_DIAGRAM):   table ROLE*LEVEL/out=WORK.MBR2META;
+50650      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 12 observations read from the data set EMWS1.MBR2_VARIABLESET.
+NOTE: The data set WORK.MBR2META has 3 observations and 4 variables.
+NOTE: PROCEDURE FREQ used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+50651      proc print data=WORK.MBR2META label noobs;
+MPRINT(EM_DIAGRAM):   proc print data=WORK.MBR2META label noobs;
+50652      var ROLE LEVEL COUNT;
+MPRINT(EM_DIAGRAM):   var ROLE LEVEL COUNT;
+50653      label ROLE = "%sysfunc(sasmsg(sashelp.dmine, meta_role_vlabel, NOQUOTE))" LEVEL = "%sysfunc(sasmsg(sashelp.dmine, meta_level_vlabel, NOQUOTE))" COUNT = "%sysfunc(sasmsg(sashelp.dmine, rpt_count_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label ROLE = "Role" LEVEL = "Measurement Level" COUNT = "Frequency Count";
+50654      title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+50655      title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_varSummary_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Variable Summary";
+MPRINT(EM_DIAGRAM):   run;
+50656      run;
+
+NOTE: There were 3 observations read from the data set WORK.MBR2META.
+NOTE: The PROCEDURE PRINT printed page 18.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+50657      title10;
+MPRINT(EM_DIAGRAM):   title10;
+50658      %let EMNORLEN = %DMNORLEN;
+MPRINT(EM_DIAGRAM):   
+EMWS1.Part_TRAIN EMWS1.Part_TRAIN 
+EMWS1.Part_TRAIN EMWS1.Part_TRAIN EMWS1 Part_TRAIN 
+EMWS1.Part_TRAIN EMWS1.Part_TRAIN 
+EMWS1.Part_TRAIN EMWS1.Part_TRAIN EMWS1 Part_TRAIN 
+>>>>>>>>>>>>>> TARGET(   USE='Y' 
+                         REPORT='N' 
+                         NAME='SalePrice' 
+                         ROLE='TARGET' 
+                         LEVEL='INTERVAL' 
+                         ORDER='' 
+                         CREATOR='' 
+                         FORMATTYPE='QUANTITY' 
+                         FAMILY='' 
+                         LOWERLIMIT=. 
+                         UPPERLIMIT=. 
+                         DISTRIBUTION='' 
+                         COMMENT='' 
+                         PRICE=. 
+                         TYPE='N' 
+                         LABEL='SalePrice' 
+                         FORMAT='BEST.' 
+                         INFORMAT='' 
+                         INDEX='N' 
+                         INDEXTYPE='NONE' 
+                         LENGTH=8 
+                      )[24557] 
+MPRINT(EM_DIAGRAM):   
+MPRINT(HPDM_PERFORMANCE):  ;
+PERFORMANCE  DETAILS
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * EM: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * EM: Create DMDB;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=EMWS1.Part_TRAIN dmdbcat=WORK.EM_DMDB maxlevel = 513 ;
+MPRINT(EM_DIAGRAM):   var
+MPRINT(DMDBVAR):   SalePrice
+MPRINT(EM_DIAGRAM):  ;
+MPRINT(EM_DIAGRAM):   target SalePrice ;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   *--- end code ---*;
+WORK.EM_DMDB WORK.EM_DMDB 
+WORK.EM_DMDB WORK.EM_DMDB WORK EM_DMDB 
+MPRINT(EM_DIAGRAM):    proc datasets lib=EMWS1 nolist;
+MPRINT(EM_DIAGRAM):   modify MBR2_SalePrice_DD(type=PROFIT label= SalePrice);
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * MBR2: Determine decision variables for SalePrice;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   data WORK.MBR2_SCORE;
+MPRINT(EM_DIAGRAM):   set EMWS1.Part_TRAIN;
+MPRINT(EM_DIAGRAM):   keep SalePrice;
+MPRINT(EM_DIAGRAM):   keep 'P_SalePrice'n;
+MPRINT(EM_DIAGRAM):   'P_SalePrice'n = 0.5;
+MPRINT(EM_DIAGRAM):   if _N_=1 then do;
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   stop;
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    data EMWS1.MBR2_SalePrice_DM;
+MPRINT(EM_DIAGRAM):   set EMWS1.MBR2_SalePrice_DM;
+MPRINT(EM_DIAGRAM):   where _TYPE_ ^in('FREQ', 'BESTPROFIT', 'COMPUTEDPROFIT', 'EXPECTEDPROFIT', 'BESTLOSS', 'COMPUTEDLOSS', 'EXPECTEDLOSS', 'ROI', 'INVESTMENTCOST', 'MODELDECISION');
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):    proc datasets lib=work nolist;
+MPRINT(EM_DIAGRAM):   modify SalePrice(type=PROFIT label= SalePrice);
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):    data EMWS1.MBR2_SalePrice_DM;
+MPRINT(EM_DIAGRAM):   set EMWS1.MBR2_SalePrice_DM end=eof;
+MPRINT(EM_DIAGRAM):   output;
+MPRINT(EM_DIAGRAM):   if eof then do;
+MPRINT(EM_DIAGRAM):   end;
+MPRINT(EM_DIAGRAM):   run;
+"No decisions defined for target "SalePrice"." 
+50719      proc print data = EMWS1.MBR2_SalePrice_DM noobs label;
+MPRINT(EM_DIAGRAM):    proc print data = EMWS1.MBR2_SalePrice_DM noobs label;
+50720      var _type_ variable label;
+MPRINT(EM_DIAGRAM):   var _type_ variable label;
+50721      where _type_ ^in('MATRIX', 'DECISION', 'TRAINPRIOR', 'DATAPRIOR', 'DECPRIOR');
+MPRINT(EM_DIAGRAM):   where _type_ ^in('MATRIX', 'DECISION', 'TRAINPRIOR', 'DATAPRIOR', 'DECPRIOR');
+50722      label _TYPE_ = "%sysfunc(sasmsg(sashelp.dmine, rpt_type_vlabel,     NOQUOTE))" VARIABLE = "%sysfunc(sasmsg(sashelp.dmine, rpt_variable_vlabel, NOQUOTE))" LABEL = "%sysfunc(sasmsg(sashelp.dmine, meta_label_vlabel, NOQUOTE))";
+MPRINT(EM_DIAGRAM):   label _TYPE_ = "Type" VARIABLE = "Variable" LABEL = "Label";
+50723      title9 ' ';
+MPRINT(EM_DIAGRAM):   title9 ' ';
+50724      title10 "%sysfunc(sasmsg(sashelp.dmine, rpt_predDecVars_title  , NOQUOTE))";
+MPRINT(EM_DIAGRAM):   title10 "Predicted and decision variables";
+MPRINT(EM_DIAGRAM):   run;
+50725      run;
+
+NOTE: There were 3 observations read from the data set EMWS1.MBR2_SALEPRICE_DM.
+      WHERE _type_ not in ('DATAPRIOR', 'DECISION', 'DECPRIOR', 'MATRIX', 'TRAINPRIOR');
+NOTE: The PROCEDURE PRINT printed page 19.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+50726      title10;
+MPRINT(EM_DIAGRAM):   title10;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   * MBR2: Preparing metadata for training;
+MPRINT(EM_DIAGRAM):   ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   data WORK.M1P0T8O_;
+MPRINT(EM_DIAGRAM):   set WORK.M1P0T8O_;
+MPRINT(EM_DIAGRAM):   where(USE = 'Y' or (ROLE in ('INPUT', 'TARGET', 'ID') and USE = 'D'));
+MPRINT(EM_DIAGRAM):   if (ROLE = 'REJECTED') then ROLE = 'INPUT';
+MPRINT(EM_DIAGRAM):   if (ROLE in ('ID', 'INPUT') and TYPE = 'C') then delete;
+MPRINT(EM_DIAGRAM):   run;
+NOTE: There were 3 observations read from the data set EMWS1.MBR2_SALEPRICE_DD.
+NOTE: The data set WORK.SALEPRICE has 3 observations and 1 variables.
+50737      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+50738      * MBR2: Create decision matrix;
+MPRINT(EM_DIAGRAM):   * MBR2: Create decision matrix;
+50739      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+50740      data WORK.SalePrice(label="SalePrice");
+MPRINT(EM_DIAGRAM):   data WORK.SalePrice(label="SalePrice");
+50741        length   SalePrice                            8
+50742                 ;
+MPRINT(EM_DIAGRAM):   length SalePrice 8 ;
+50743      
+50744        label    SalePrice="SalePrice"
+50745                 ;
+MPRINT(EM_DIAGRAM):   label SalePrice= "SalePrice" ;
+50746       SalePrice=5014;
+MPRINT(EM_DIAGRAM):   SalePrice=5014;
+50747      output;
+MPRINT(EM_DIAGRAM):   output;
+50748       SalePrice=135363;
+MPRINT(EM_DIAGRAM):   SalePrice=135363;
+50749      output;
+MPRINT(EM_DIAGRAM):   output;
+50750       SalePrice=75984.2752293578;
+MPRINT(EM_DIAGRAM):   SalePrice=75984.2752293578;
+50751      output;
+MPRINT(EM_DIAGRAM):   output;
+50752      ;
+MPRINT(EM_DIAGRAM):   ;
+50753      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK.SALEPRICE has 3 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+50754      proc datasets lib=work nolist;
+MPRINT(EM_DIAGRAM):   proc datasets lib=work nolist;
+50755      modify SalePrice(type=PROFIT label=SalePrice);
+MPRINT(EM_DIAGRAM):   modify SalePrice(type=PROFIT label= SalePrice);
+MPRINT(EM_DIAGRAM):   run;
+50756      run;
+
+NOTE: MODIFY was successful for WORK.SALEPRICE.DATA.
+50757      quit;
+MPRINT(EM_DIAGRAM):   quit;
+
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+50758      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+50759      * MBR2: DMDBClass Macro ;
+MPRINT(EM_DIAGRAM):   * MBR2: DMDBClass Macro ;
+50760      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+50761      %macro DMDBClass;
+50762      
+50763      %mend DMDBClass;
+50764      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+50765      * MBR2: DMDBVar Macro ;
+MPRINT(EM_DIAGRAM):   * MBR2: DMDBVar Macro ;
+50766      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+50767      %macro DMDBVar;
+50768          Age Basement Baths ConstructionType FirePlace FirstFloor GarageSize SalePrice
+50769         SecondFloor TotalArea UpperArea
+50770      %mend DMDBVar;
+50771      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+50772      * MBR2: Create DMDB;
+MPRINT(EM_DIAGRAM):   * MBR2: Create DMDB;
+50773      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+50774      proc dmdb batch data=EMWS1.Part_TRAIN
+50775      dmdbcat=WORK.MBR2_DMDB
+50776      maxlevel = 513
+50777      ;
+MPRINT(EM_DIAGRAM):   proc dmdb batch data=EMWS1.Part_TRAIN dmdbcat=WORK.MBR2_DMDB maxlevel = 513 ;
+50778      id
+50779      _dataobs_
+50780      ;
+MPRINT(EM_DIAGRAM):   id _dataobs_ ;
+MPRINT(EM_DIAGRAM):   var
+50781      var %DMDBVar;
+MPRINT(DMDBVAR):   Age Basement Baths ConstructionType FirePlace FirstFloor GarageSize SalePrice SecondFloor TotalArea UpperArea
+MPRINT(EM_DIAGRAM):  ;
+50782      target
+50783      SalePrice
+50784      ;
+MPRINT(EM_DIAGRAM):   target SalePrice ;
+50785      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: Records processed = 218   Memory used = 511K.
+NOTE: There were 218 observations read from the data set EMWS1.PART_TRAIN.
+NOTE: PROCEDURE DMDB used (Total process time):
+      real time           0.03 seconds
+      cpu time            0.03 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   * MBR2: Interval Variables Macro ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+50786      quit;
+50787      *------------------------------------------------------------* ;
+50788      * MBR2: Interval Variables Macro ;
+50789      *------------------------------------------------------------* ;
+50790      %macro pmbrvar;
+50791          Age Basement Baths ConstructionType FirePlace FirstFloor GarageSize
+50792         SecondFloor TotalArea UpperArea
+50793      %mend pmbrvar;
+50794      proc pmbr data=EMWS1.Part_TRAIN dmdbcat=WORK.MBR2_DMDB
+50795      validata = EMWS1.PART_VALIDATE
+50796      outest = EMWS1.MBR2_ESTIMATE
+50797      k = 16
+50798      epsilon = 0
+50799      buckets = 8
+50800      method = RDTREE
+50801      weighted
+50802      neighbors
+50803      ;
+MPRINT(EM_DIAGRAM):   proc pmbr data=EMWS1.Part_TRAIN dmdbcat=WORK.MBR2_DMDB validata = EMWS1.PART_VALIDATE outest = EMWS1.MBR2_ESTIMATE k = 16 epsilon = 0 buckets = 8 method = RDTREE weighted neighbors ;
+MPRINT(EM_DIAGRAM):   var
+50804      var %pmbrvar;
+MPRINT(PMBRVAR):   Age Basement Baths ConstructionType FirePlace FirstFloor GarageSize SecondFloor TotalArea UpperArea
+MPRINT(EM_DIAGRAM):  ;
+50805      target SalePrice;
+MPRINT(EM_DIAGRAM):   target SalePrice;
+50806      score data=EMWS1.PART_TRAIN
+50807      out=EMWS1.MBR2_TRAIN
+50808      role = TRAIN
+50809      ;
+MPRINT(EM_DIAGRAM):   score data=EMWS1.PART_TRAIN out=EMWS1.MBR2_TRAIN role = TRAIN ;
+50810      id _dataobs_;
+MPRINT(EM_DIAGRAM):   id _dataobs_;
+50811      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 218 observations read from the data set EMWS1.PART_TRAIN.
+NOTE: There were 145 observations read from the data set EMWS1.PART_VALIDATE.
+NOTE: There were 218 observations read from the data set EMWS1.PART_TRAIN.
+NOTE: The data set EMWS1.MBR2_ESTIMATE has 1 observations and 41 variables.
+NOTE: The data set EMWS1.MBR2_TRAIN has 218 observations and 37 variables.
+NOTE: PROCEDURE PMBR used (Total process time):
+      real time           0.11 seconds
+      cpu time            0.07 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+50812      quit;
+
+NOTE: There were 3 observations read from the data set EMWS1.MBR2_SALEPRICE_DD.
+NOTE: The data set WORK.SALEPRICE has 3 observations and 1 variables.
+NOTE: There were 3 observations read from the data set EMWS1.MBR2_SALEPRICE_DD.
+NOTE: The data set WORK.SALEPRICE has 3 observations and 1 variables.
+50813      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------*;
+50814      * MBR2: Create decision matrix;
+MPRINT(EM_DIAGRAM):   * MBR2: Create decision matrix;
+50815      *------------------------------------------------------------*;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------*;
+50816      data WORK.SalePrice(label="SalePrice");
+MPRINT(EM_DIAGRAM):   data WORK.SalePrice(label="SalePrice");
+50817        length   SalePrice                            8
+50818                 ;
+MPRINT(EM_DIAGRAM):   length SalePrice 8 ;
+50819      
+50820        label    SalePrice="SalePrice"
+50821                 ;
+MPRINT(EM_DIAGRAM):   label SalePrice= "SalePrice" ;
+50822       SalePrice=5014;
+MPRINT(EM_DIAGRAM):   SalePrice=5014;
+50823      output;
+MPRINT(EM_DIAGRAM):   output;
+50824       SalePrice=135363;
+MPRINT(EM_DIAGRAM):   SalePrice=135363;
+50825      output;
+MPRINT(EM_DIAGRAM):   output;
+50826       SalePrice=75984.2752293578;
+MPRINT(EM_DIAGRAM):   SalePrice=75984.2752293578;
+50827      output;
+MPRINT(EM_DIAGRAM):   output;
+50828      ;
+MPRINT(EM_DIAGRAM):   ;
+50829      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: The data set WORK.SALEPRICE has 3 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+50830      proc datasets lib=work nolist;
+MPRINT(EM_DIAGRAM):   proc datasets lib=work nolist;
+50831      modify SalePrice(type=PROFIT label=SalePrice);
+MPRINT(EM_DIAGRAM):   modify SalePrice(type=PROFIT label= SalePrice);
+MPRINT(EM_DIAGRAM):   run;
+50832      run;
+
+NOTE: MODIFY was successful for WORK.SALEPRICE.DATA.
+50833      quit;
+MPRINT(EM_DIAGRAM):   quit;
+
+NOTE: PROCEDURE DATASETS used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+50834      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):    *------------------------------------------------------------* ;
+50835      * MBR2: Interval Variables Macro ;
+MPRINT(EM_DIAGRAM):   * MBR2: Interval Variables Macro ;
+50836      *------------------------------------------------------------* ;
+MPRINT(EM_DIAGRAM):   *------------------------------------------------------------* ;
+50837      %macro pmbrvar;
+50838          Age Basement Baths ConstructionType FirePlace FirstFloor GarageSize
+50839         SecondFloor TotalArea UpperArea
+50840      %mend pmbrvar;
+50841      proc pmbr data=EMWS1.Part_TRAIN dmdbcat=WORK.MBR2_DMDB
+50842      outest = WORK.MBR2_OUTEST
+50843      k = 16
+50844      epsilon = 0
+50845      buckets = 8
+50846      method = RDTREE
+50847      weighted
+50848      neighbors
+50849      ;
+MPRINT(EM_DIAGRAM):   proc pmbr data=EMWS1.Part_TRAIN dmdbcat=WORK.MBR2_DMDB outest = WORK.MBR2_OUTEST k = 16 epsilon = 0 buckets = 8 method = RDTREE weighted neighbors ;
+MPRINT(EM_DIAGRAM):   var
+50850      var %pmbrvar;
+MPRINT(PMBRVAR):   Age Basement Baths ConstructionType FirePlace FirstFloor GarageSize SecondFloor TotalArea UpperArea
+MPRINT(EM_DIAGRAM):  ;
+50851      target SalePrice;
+MPRINT(EM_DIAGRAM):   target SalePrice;
+50852      score data=EMWS1.PART_VALIDATE
+50853      out=EMWS1.MBR2_VALIDATE
+50854      role = VALID
+50855      ;
+MPRINT(EM_DIAGRAM):   score data=EMWS1.PART_VALIDATE out=EMWS1.MBR2_VALIDATE role = VALID ;
+50856      id _dataobs_;
+MPRINT(EM_DIAGRAM):   id _dataobs_;
+50857      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 218 observations read from the data set EMWS1.PART_TRAIN.
+NOTE: There were 145 observations read from the data set EMWS1.PART_VALIDATE.
+NOTE: The data set WORK.MBR2_OUTEST has 1 observations and 30 variables.
+NOTE: The data set EMWS1.MBR2_VALIDATE has 145 observations and 37 variables.
+NOTE: PROCEDURE PMBR used (Total process time):
+      real time           0.04 seconds
+      cpu time            0.04 seconds
+      
+
+MPRINT(EM_DIAGRAM):   quit;
+50858      quit;
+
+50859      data EMWS1.MBR2_EMOUTFIT;
+MPRINT(EM_DIAGRAM):    data EMWS1.MBR2_EMOUTFIT;
+50860      length TARGET $32;
+MPRINT(EM_DIAGRAM):   length TARGET $32;
+50861      target = "SalePrice";
+MPRINT(EM_DIAGRAM):   target = "SalePrice";
+50862      set EMWS1.MBR2_ESTIMATE;
+MPRINT(EM_DIAGRAM):   set EMWS1.MBR2_ESTIMATE;
+50863      keep TARGET _NW_--_VMAX_;
+MPRINT(EM_DIAGRAM):   keep TARGET _NW_--_VMAX_;
+50864      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: There were 1 observations read from the data set EMWS1.MBR2_ESTIMATE.
+NOTE: The data set EMWS1.MBR2_EMOUTFIT has 1 observations and 31 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):    proc datasets lib=WORK nolist;
+MPRINT(EM_DIAGRAM):   delete MBR2_DMDB;
+MPRINT(EM_DIAGRAM):   delete MBR2_DMDB / memtype=catalog;
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   quit;
+MPRINT(EM_DIAGRAM):   proc printto;
+MPRINT(EM_DIAGRAM):   run;

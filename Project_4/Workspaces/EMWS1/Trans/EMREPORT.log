@@ -1,0 +1,41 @@
+MPRINT(EM_DIAGRAM):    data _null_;
+MPRINT(EM_DIAGRAM):   call symput('NLDATE', strip(put(date(), NLDATE.)));
+MPRINT(EM_DIAGRAM):   call symput('NLTIME', strip(put(datetime(), NLTIME.)));
+MPRINT(EM_DIAGRAM):   run;
+MPRINT(EM_DIAGRAM):   data _null_;
+MPRINT(EM_DIAGRAM):   nldate= sasmsg("sashelp.dmine", "log_date_note", 'N', "November 12, 2015" );
+MPRINT(EM_DIAGRAM):   nltime= sasmsg("sashelp.dmine", "log_time_note", 'N', "13:26:21" );
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   put "* Report Log";
+MPRINT(EM_DIAGRAM):   put nldate;
+MPRINT(EM_DIAGRAM):   put nltime;
+MPRINT(EM_DIAGRAM):   put "*------------------------------------------------------------*";
+MPRINT(EM_DIAGRAM):   run;
+*------------------------------------------------------------*
+* Report Log
+Date:                November 12, 2015
+Time:                13:26:21
+*------------------------------------------------------------*
+MPRINT(EM_DIAGRAM):    filename O14LXZ3V "C:\Users\sakerb01\Desktop\SAS EM 12.3 Tutorials _ Projects\Project_4\Workspaces\EMWS1\Trans\EMREPORT.out" encoding="UTF-8" NOBOM;
+MPRINT(EM_DIAGRAM):   proc printto print=O14LXZ3V new;
+MPRINT(EM_DIAGRAM):   run;
+21426      data EMWS1.Trans_EMSCOREVAR;
+MPRINT(EM_DIAGRAM):    data EMWS1.Trans_EMSCOREVAR;
+21427      length Name $32 formula $300 file $200;
+MPRINT(EM_DIAGRAM):   length Name $32 formula $300 file $200;
+21428      keep NAME Formula file;
+MPRINT(EM_DIAGRAM):   keep NAME Formula file;
+21429      run;
+MPRINT(EM_DIAGRAM):   run;
+
+NOTE: Variable Name is uninitialized.
+NOTE: Variable formula is uninitialized.
+NOTE: Variable file is uninitialized.
+NOTE: The data set EMWS1.TRANS_EMSCOREVAR has 1 observations and 3 variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      cpu time            0.01 seconds
+      
+
+MPRINT(EM_DIAGRAM):    proc printto;
+MPRINT(EM_DIAGRAM):   run;
